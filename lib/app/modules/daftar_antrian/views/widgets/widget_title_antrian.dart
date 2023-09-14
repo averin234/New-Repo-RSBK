@@ -24,7 +24,7 @@ class WidgetTitleAntrian extends StatelessWidget {
               height: 5,
             ),
             const Text(
-                "Pasin Tidak Terdaftar di Klinik, Harap membawa KTP Saat datang ke Klinik Guna Melakukan Verifikasi",
+                "Pasien Belum Terdaftar di RS, Harap membawa KTP Saat datang ke Unit Registrasi Guna Melakukan Verifikasi",
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.normal,
