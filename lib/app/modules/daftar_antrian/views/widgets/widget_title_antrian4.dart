@@ -16,7 +16,7 @@ class _WidgetTitleAntrian4State extends State<WidgetTitleAntrian4> {
       child: Row(
         children: [
           Expanded(
-            child: Text("Antrian Saat ini", style: MyStyle.textTitleBlack),
+            child: Text("Antrean Saat ini", style: MyStyle.textTitleBlack),
           ),
         ],
       ),

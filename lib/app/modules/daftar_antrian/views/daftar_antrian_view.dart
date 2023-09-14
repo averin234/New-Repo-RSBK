@@ -76,7 +76,7 @@ class _DaftarAntrianViewState extends State<DaftarAntrianView> {
                       Get.toNamed(Routes.HOME);
                     }),
                 title: Text(
-                  "Daftar Antrian",
+                  "Daftar Antrean",
                   style: GoogleFonts.nunito(
                       fontSize: MyFontSize.large1, fontWeight: FontWeight.bold),
                 ),
@@ -130,7 +130,7 @@ class _DaftarAntrianViewState extends State<DaftarAntrianView> {
                         ),
                         Container(
                           margin: const EdgeInsets.only(left: 20, bottom: 0),
-                          child: Text("Antrian Saat ini",
+                          child: Text("Antrean Saat ini",
                               style: MyStyle.textTitleBlack),
                         ),
                         FutureBuilder(

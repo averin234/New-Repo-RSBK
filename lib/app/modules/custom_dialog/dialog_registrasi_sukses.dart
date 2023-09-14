@@ -44,7 +44,7 @@ class DialogSuksesRegis extends StatelessWidget {
                   height: 10,
                 ),
                 const Text(
-                    "Silahkan Datang ke RS untuk melakukan Verifikasi lewat FO atau QRCore",
+                    "Silahkan Datang ke RS untuk melakukan Verifikasi lewat FO atau QRCode",
                     style: TextStyle(
                         fontSize: 15,
                         decoration: TextDecoration.none,
@@ -66,7 +66,7 @@ class DialogSuksesRegis extends StatelessWidget {
                       color: Colors.blue,
                     ),
                     child: Text(
-                      "Lihat Antrian",
+                      "Lihat Antrean",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white,

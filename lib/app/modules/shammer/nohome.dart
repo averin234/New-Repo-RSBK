@@ -20,7 +20,7 @@ class nohome extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 20, top: 15, bottom: 15),
               child: Text(
-                "Antrian anda saat ini",
+                "Antrean anda saat ini",
                 style: MyStyle.textTitleBlack,
               ),
             ),

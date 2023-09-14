@@ -136,7 +136,7 @@ class WidgetStraggeredGridView extends StatelessWidget {
                   height: 15,
                 ),
                 Text(
-                  "Daftar \nAntrian",
+                  "Daftar \nAntrean",
                   textAlign: TextAlign.center,
                   style: GoogleFonts.nunito(
                     fontSize: MyFontSize.small3,

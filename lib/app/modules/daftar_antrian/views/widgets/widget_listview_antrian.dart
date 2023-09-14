@@ -84,7 +84,7 @@ class CardListViewAntrian extends StatelessWidget {
                       Icons.calendar_month,
                       color: Colors.grey,
                     ),
-                    const Text("Jadwal Antrian :"),
+                    const Text("Jadwal Antrean :"),
                     Text(
                       (list.tgl ?? '').substring(0, 10),
                       style: GoogleFonts.nunito(

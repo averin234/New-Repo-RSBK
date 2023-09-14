@@ -17,7 +17,7 @@ class HorizontalWeekCalendarPackage1 extends GetView<DaftarAntrianController> {
           Padding(
             padding: const EdgeInsets.only(top: 10),
             child: Text(
-              'Tanggal Antrian',
+              'Tanggal Antrean',
               style: Theme.of(context).textTheme.titleLarge!.copyWith(
                     color: Colors.white,
                     fontSize: 15,
