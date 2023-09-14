@@ -8,9 +8,9 @@ class CommunityTextColumn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const TextColumn(
-      title: 'rumah sakit pluit',
+      title: ' Rumah Sakit Budi Kemuliaan',
       text:
-          'Menjadikan RS Pluit sebagai RS yang bermutu dan menjadi pilihan masyarakat.',
+          'Menjadikan  RS Budi Kemuliaan sebagai RS yang bermutu dan menjadi pilihan masyarakat.',
     );
   }
 }

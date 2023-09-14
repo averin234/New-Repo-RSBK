@@ -30,7 +30,7 @@ class DialogInginLogin extends StatelessWidget {
               height: 200,
             ),
             const Text(
-                "Anda Belum Terdaftar atau Login di Aplikasi SIRS rumah sakit pluit",
+                "Anda Belum Terdaftar atau Login di Aplikasi SIRS Rumah Sakit Budi Kemuliaan",
                 style: TextStyle(
                     fontSize: 15,
                     decoration: TextDecoration.none,

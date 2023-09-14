@@ -8,7 +8,7 @@ class WorkTextColumn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const TextColumn(
-      title: 'rumah sakit pluit',
+      title: 'Rumah Sakit Budi Kemuliaan',
       text: 'Meningkatkan kepuasan pasien dan kesejahteraan karyawan.',
     );
   }

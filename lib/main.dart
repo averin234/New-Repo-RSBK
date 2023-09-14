@@ -16,8 +16,8 @@ void main() async {
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
-  await GetStorage.init('token_pluit');
-  await GetStorage.init('dataRegist_pluit');
+  await GetStorage.init('token_rsbk');
+  await GetStorage.init('dataRegist_rsbk');
   DataPx cekData = await API.getDataPx(
       noKtp: Publics.controller.getDataRegist.value.noKtp ?? '');
   runApp(MyApp(msg: cekData.msg ?? 'Invalid token: Expired'));

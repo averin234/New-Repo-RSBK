@@ -8,7 +8,7 @@ class EducationTextColumn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const TextColumn(
-      title: 'rumah sakit pluit',
+      title: 'Rumah Sakit Budi Kemuliaan',
       text:
           'Memberikan pelayanan kesehatan yang sesuai dengan kemajuan ilmu pengetahuan dan teknologi.',
     );

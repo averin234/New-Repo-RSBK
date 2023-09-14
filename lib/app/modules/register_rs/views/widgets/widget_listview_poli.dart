@@ -333,7 +333,7 @@ class CardListViewPoli extends StatelessWidget {
               child: Column(
                 children: [
                   const Text(
-                      "Anda Belum Terdaftar atau Login di Aplikasi SIRS rumah sakit pluit",
+                      "Anda Belum Terdaftar atau Login di Aplikasi SIRS Rumah Sakit Budi Kemuliaan",
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center),

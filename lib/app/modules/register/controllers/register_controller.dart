@@ -26,14 +26,10 @@ class RegisterController extends GetxController {
     Dropdowns(kategori: 'Wanita', initialValue: 'P')
   ];
   final golDar = [
-    Dropdowns(kategori: 'A+', initialValue: 'A+'),
-    Dropdowns(kategori: 'A-', initialValue: 'A-'),
-    Dropdowns(kategori: 'B+', initialValue: 'B+'),
-    Dropdowns(kategori: 'B-', initialValue: 'B-'),
-    Dropdowns(kategori: 'AB+', initialValue: 'AB+'),
-    Dropdowns(kategori: 'AB-', initialValue: 'AB-'),
-    Dropdowns(kategori: 'O+', initialValue: 'O+'),
-    Dropdowns(kategori: 'O-', initialValue: 'O-'),
+    Dropdowns(kategori: 'A', initialValue: 'A'),
+    Dropdowns(kategori: 'B', initialValue: 'B'),
+    Dropdowns(kategori: 'AB', initialValue: 'AB'),
+    Dropdowns(kategori: 'O', initialValue: 'O'),
     Dropdowns(kategori: 'Belum Diperiksa', initialValue: 'Belum Diperiksa'),
   ];
   int umur(String tanggalLahir) {

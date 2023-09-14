@@ -36,7 +36,7 @@ class DialogRegisPoli extends GetView<DetailPoliController> {
                   height: 200, // default is 15 FPS
                 ),
                 const Text(
-                    "Anda Belum Tedaftar Sebagai Pasien di rumah sakit pluit",
+                    "Anda Belum Tedaftar Sebagai Pasien di Rumah Sakit Budi Kemuliaan",
                     style: TextStyle(
                         color: Colors.black45,
                         fontSize: 18,
@@ -103,7 +103,7 @@ class DialogRegisPoli extends GetView<DetailPoliController> {
                             kodeDokter: controller.items.kodeDokter ?? '',
                             kodeBagian: controller.items.kodeBagian ?? '',
                             namaBagian: controller.items.namaBagian ?? '',
-                            namaKlinik: 'rumah sakit pluit',
+                            namaKlinik: ' Rumah Sakit Budi Kemuliaan',
                             namaDokter: controller.items.namaPegawai ?? '',
                             durasi:
                                 controller.listAntrianDokter.value.durasi ?? '',

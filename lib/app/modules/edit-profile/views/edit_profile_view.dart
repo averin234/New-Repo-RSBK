@@ -87,7 +87,7 @@ class EditProfileView extends GetView<EditProfileController> {
                           height: 5,
                         ),
                         TextScroll(
-                          'Data diri anda terekam di database rumah sakit pluit, Mohon periksa kembali data diri anda, dan lakukan refresh saat melakukan perubahan data diri',
+                          'Data diri anda terekam di database Rumah Sakit Budi Kemuliaan, Mohon periksa kembali data diri anda, dan lakukan refresh saat melakukan perubahan data diri',
                           textDirection: TextDirection.ltr,
                           style: GoogleFonts.nunito(
                               fontWeight: FontWeight.bold,

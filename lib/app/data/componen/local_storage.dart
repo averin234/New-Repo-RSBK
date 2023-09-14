@@ -4,8 +4,8 @@ import 'package:rsbkcare/app/data/componen/publics.dart';
 import 'package:rsbkcare/app/data/model/login_and_regist/token.dart';
 
 class LocalStorages {
-  static GetStorage boxToken = GetStorage('token_pluit');
-  static GetStorage boxDataRegist = GetStorage('dataRegist_pluit');
+  static GetStorage boxToken = GetStorage('token_rsbk');
+  static GetStorage boxDataRegist = GetStorage('dataRegist_rsbk');
   static Future<void> setToken(Token token) async {
     Token tokens = getToken;
     await boxToken.erase();

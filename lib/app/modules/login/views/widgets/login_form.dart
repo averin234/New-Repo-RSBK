@@ -266,7 +266,8 @@ class LoginForm extends StatelessWidget {
                             const EdgeInsets.only(right: 10, left: 10, top: 20),
                         child: GestureDetector(
                           onTap: () => LaunchReview.launch(
-                            androidAppId: "averin.sirs_gading1_pluit.com",
+                            androidAppId: "averin.sirs_rsbk.com",
+
                             // iOSAppId: "585027354",
                           ),
                           child: Container(
