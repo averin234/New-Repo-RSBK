@@ -31,23 +31,27 @@ class EditProfileController extends GetxController {
     Dropdowns(kategori: 'Wanita', initialValue: 'P')
   ];
   final golDar = [
-    Dropdowns(kategori: 'A', initialValue: 'A'),
-    Dropdowns(kategori: 'B', initialValue: 'B'),
-    Dropdowns(kategori: 'AB', initialValue: 'AB'),
-    Dropdowns(kategori: 'O', initialValue: 'O'),
+    Dropdowns(kategori: 'A+', initialValue: 'A+'),
+    Dropdowns(kategori: 'A-', initialValue: 'A-'),
+    Dropdowns(kategori: 'B+', initialValue: 'B+'),
+    Dropdowns(kategori: 'B-', initialValue: 'B-'),
+    Dropdowns(kategori: 'AB+', initialValue: 'AB+'),
+    Dropdowns(kategori: 'AB-', initialValue: 'AB-'),
+    Dropdowns(kategori: 'O+', initialValue: 'O+'),
+    Dropdowns(kategori: 'O-', initialValue: 'O-'),
     Dropdowns(kategori: 'Belum Diperiksa', initialValue: 'Belum Diperiksa'),
   ];
 
   @override
   void onInit() {
     selectedItemGender = gender.firstWhere(
-        (element) => element.initialValue == dataPasien.value.jenisKelamin);
+            (element) => element.initialValue == dataPasien.value.jenisKelamin);
     selectedItemGolDar = dataPasien.value.golonganDarah != null
         ? golDar.firstWhere((element) =>
-            element.initialValue == dataPasien.value.golonganDarah ||
-            element.initialValue
-                    .substring(0, element.initialValue.length - 1) ==
-                dataPasien.value.golonganDarah)
+    element.initialValue == dataPasien.value.golonganDarah ||
+        element.initialValue
+            .substring(0, element.initialValue.length - 1) ==
+            dataPasien.value.golonganDarah)
         : golDar.last;
     jenisKelaminController.text = selectedItemGender.initialValue;
     nikPasienController.text = dataPasien.value.noKtp ?? '';

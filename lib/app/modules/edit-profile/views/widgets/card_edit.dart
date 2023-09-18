@@ -24,7 +24,7 @@ class MyRegister1 extends GetView<EditProfileController> {
       children: [
         Container(
           padding:
-              const EdgeInsets.only(right: 125, left: 125, top: 20, bottom: 20),
+          const EdgeInsets.only(right: 125, left: 125, top: 20, bottom: 20),
           decoration: BoxDecoration(
             color: Theme.of(context).brightness == Brightness.light
                 ? Color(0xfff6f9fe)
@@ -54,23 +54,23 @@ class MyRegister1 extends GetView<EditProfileController> {
                       shape: BoxShape.circle,
                       image: controller.fileImage.value.isEmpty
                           ? DecorationImage(
-                              fit: BoxFit.cover,
-                              image: NetworkImage(
-                                controller.dataPasien.value.fotoPasien != 'null'
-                                    ? controller.dataPasien.value.fotoPasien!
-                                    : controller.dataPasien.value
-                                                .jenisKelamin ==
-                                            'L'
-                                        ? Avatar.lakiLaki
-                                        : Avatar.perempuan,
-                              ),
-                            )
+                        fit: BoxFit.cover,
+                        image: NetworkImage(
+                          controller.dataPasien.value.fotoPasien != 'null'
+                              ? controller.dataPasien.value.fotoPasien!
+                              : controller.dataPasien.value
+                              .jenisKelamin ==
+                              'L'
+                              ? Avatar.lakiLaki
+                              : Avatar.perempuan,
+                        ),
+                      )
                           : DecorationImage(
-                              fit: BoxFit.cover,
-                              image: FileImage(
-                                File(controller.fileImage.value),
-                              ),
-                            ),
+                        fit: BoxFit.cover,
+                        image: FileImage(
+                          File(controller.fileImage.value),
+                        ),
+                      ),
                     ),
                   );
                 }),
@@ -214,7 +214,7 @@ class MyRegister1 extends GetView<EditProfileController> {
           noHP: controller.noTelpController.text,
           email: controller.emailController.text,
           umurPasien:
-              controller.umur(controller.tglLhrController.text).toString(),
+          controller.umur(controller.tglLhrController.text).toString(),
           golDarah: controller.golDarahController.text,
           tanggalLahir: controller.tglLhrController.text,
           tempatLahir: controller.tempatLhrController.text,
@@ -258,11 +258,11 @@ class MyRegister1 extends GetView<EditProfileController> {
   }
 
   Widget _myDropDown(
-    String title, {
-    required TextEditingController controller,
-    Dropdowns? selectedItem,
-    required List<Dropdowns> items,
-  }) {
+      String title, {
+        required TextEditingController controller,
+        Dropdowns? selectedItem,
+        required List<Dropdowns> items,
+      }) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       decoration: BoxDecoration(
@@ -274,7 +274,7 @@ class MyRegister1 extends GetView<EditProfileController> {
           Text(
             title,
             style:
-                GoogleFonts.nunito(fontSize: 13, fontWeight: FontWeight.w600),
+            GoogleFonts.nunito(fontSize: 13, fontWeight: FontWeight.w600),
           ),
           const SizedBox(
             height: 10,

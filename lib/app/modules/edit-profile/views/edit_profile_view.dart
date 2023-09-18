@@ -15,12 +15,10 @@ class EditProfileView extends GetView<EditProfileController> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
+    return  WillPopScope(
       onWillPop: () async {
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(
-              builder: (context) =>
-                  RubahPasswordView()), // Ganti dengan halaman home Anda
+          MaterialPageRoute(builder: (context) => RubahPasswordView()), // Ganti dengan halaman home Anda
         );
         return true;
       },
@@ -87,7 +85,7 @@ class EditProfileView extends GetView<EditProfileController> {
                           height: 5,
                         ),
                         TextScroll(
-                          'Data diri anda terekam di database Rumah Sakit Budi Kemuliaan, Mohon periksa kembali data diri anda, dan lakukan refresh saat melakukan perubahan data diri',
+                          'Data diri anda terekam di database rumah sakit pluit, Mohon periksa kembali data diri anda, dan lakukan refresh saat melakukan perubahan data diri',
                           textDirection: TextDirection.ltr,
                           style: GoogleFonts.nunito(
                               fontWeight: FontWeight.bold,
