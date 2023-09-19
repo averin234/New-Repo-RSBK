@@ -135,6 +135,8 @@ class LoginForm extends StatelessWidget {
                     if (aksesPX.code == 500) {
                       showModalBottomSheet(
                         context: context,
+                        enableDrag: true,
+                        showDragHandle: true,
                         shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.vertical(
                             top: Radius.circular(20),
@@ -189,23 +191,6 @@ class LoginForm extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            Container(
-              height: 4,
-              margin: EdgeInsets.only(
-                right: Get.width / 2 - 40,
-                left: Get.width / 2 - 40,
-              ),
-              decoration: BoxDecoration(
-                color: const Color(0xFFe0e0e0),
-                borderRadius: BorderRadius.circular(10),
-              ),
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
             SingleChildScrollView(
                 child: Center(
               child: Column(
@@ -229,10 +214,7 @@ class LoginForm extends StatelessWidget {
                     "assets/updateaplikasi.png",
                     gaplessPlayback: true,
                     fit: BoxFit.fitHeight,
-                    height: 230,
-                  ),
-                  const SizedBox(
-                    height: 10,
+                    height: 200,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -245,7 +227,7 @@ class LoginForm extends StatelessWidget {
                           child: Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(7),
-                              color: Colors.blue,
+                              color: Colors.grey[100],
                             ),
                             child: Column(
                               children: [
@@ -253,7 +235,7 @@ class LoginForm extends StatelessWidget {
                                   padding: EdgeInsets.all(16),
                                   child: Text("Cancel",
                                       style: TextStyle(
-                                          color: Colors.white,
+                                          color: Colors.black,
                                           fontWeight: FontWeight.bold)),
                                 ),
                               ],
