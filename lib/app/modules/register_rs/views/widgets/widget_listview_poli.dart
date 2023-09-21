@@ -27,9 +27,8 @@ class CardListViewPoli extends StatelessWidget {
             ? showModalBottomSheet(
                 context: context,
                 isDismissible: true,
-                enableDrag: true,
+                enableDrag: false,
                 useSafeArea: true,
-                showDragHandle: true,
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.vertical(
                     top: Radius.circular(20),
@@ -45,7 +44,7 @@ class CardListViewPoli extends StatelessWidget {
               )
             : showModalBottomSheet(
                 context: context,
-                showDragHandle: true,
+                enableDrag: false,
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.vertical(
                     top: Radius.circular(20),

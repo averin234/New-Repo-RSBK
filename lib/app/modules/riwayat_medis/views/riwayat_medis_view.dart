@@ -151,7 +151,7 @@ class _RiwayatMedisViewState extends State<RiwayatMedisView> {
                                         ),
                                       );
                                     } else {
-                                      return const Column(
+                                      return Column(
                                         children: [
                                           SizedBox(
                                             height: 10,

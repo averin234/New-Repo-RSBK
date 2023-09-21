@@ -73,8 +73,7 @@ class AppTextField extends StatelessWidget {
   void onTextFieldTap() {
     final controller = Get.put(RegisterRsController());
     showModalBottomSheet<void>(
-      enableDrag: true,
-      showDragHandle: true,
+      enableDrag: false,
       context: Get.context!,
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(top: Radius.circular(20))),

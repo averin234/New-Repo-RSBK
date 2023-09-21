@@ -209,7 +209,7 @@ class SettingProfileView extends GetView<SettingProfileController> {
                   InkWell(
                     onTap: () => showModalBottomSheet(
                       context: context,
-                      showDragHandle: true,
+                      enableDrag: false,
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.vertical(
                           top: Radius.circular(20),
@@ -217,7 +217,7 @@ class SettingProfileView extends GetView<SettingProfileController> {
                       ),
                       builder: (context) => ubahpassowrd(context: context),
                     ),
-                    child: const Row(
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
@@ -246,7 +246,7 @@ class SettingProfileView extends GetView<SettingProfileController> {
                   InkWell(
                     onTap: () => showModalBottomSheet(
                       context: context,
-                      showDragHandle: true,
+                      enableDrag: false,
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.vertical(
                           top: Radius.circular(20),
@@ -254,7 +254,7 @@ class SettingProfileView extends GetView<SettingProfileController> {
                       ),
                       builder: (context) => InfoAplikasi(),
                     ),
-                    child: const Row(
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
@@ -280,7 +280,7 @@ class SettingProfileView extends GetView<SettingProfileController> {
             InkWell(
               onTap: () => showModalBottomSheet(
                 context: context,
-                showDragHandle: true,
+                enableDrag: false,
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.vertical(
                     top: Radius.circular(20),
@@ -303,7 +303,7 @@ class SettingProfileView extends GetView<SettingProfileController> {
                     ),
                   ],
                 ),
-                child: const Column(children: [
+                child: Column(children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -351,7 +351,7 @@ class SettingProfileView extends GetView<SettingProfileController> {
                   borderRadius: BorderRadius.circular(50),
                   color: Colors.transparent,
                 ),
-                child: const Column(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -546,7 +546,7 @@ class SettingProfileView extends GetView<SettingProfileController> {
                     borderRadius: BorderRadius.circular(7),
                     color: Colors.blue,
                   ),
-                  child: const Column(
+                  child: Column(
                     children: [
                       Padding(
                         padding: EdgeInsets.all(16),
@@ -611,7 +611,7 @@ class SettingProfileView extends GetView<SettingProfileController> {
                         borderRadius: BorderRadius.circular(7),
                         color: Colors.blue,
                       ),
-                      child: const Column(
+                      child: Column(
                         children: [
                           Padding(
                             padding: EdgeInsets.all(16),
@@ -653,7 +653,7 @@ class SettingProfileView extends GetView<SettingProfileController> {
                             LocalStorages.getToken;
                         Get.offAllNamed(Routes.LOGIN);
                       },
-                      child: const Column(
+                      child: Column(
                         children: [
                           Padding(
                             padding: EdgeInsets.all(16),

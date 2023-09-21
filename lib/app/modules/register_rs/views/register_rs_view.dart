@@ -90,7 +90,7 @@ class _RegisterRsViewState extends State<RegisterRsView> {
                   toolbarHeight: 100,
                   automaticallyImplyLeading: false,
                   elevation: 0,
-                  title: const Column(
+                  title: Column(
                     children: [
                       SizedBox(
                         height: 13,

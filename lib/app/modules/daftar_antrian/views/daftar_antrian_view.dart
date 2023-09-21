@@ -90,7 +90,7 @@ class _DaftarAntrianViewState extends State<DaftarAntrianView> {
                   toolbarHeight: 150,
                   elevation: 0,
                   automaticallyImplyLeading: false,
-                  title: const Column(
+                  title: Column(
                     children: [
                       HorizontalWeekCalendarPackage1(),
                       SizedBox(height: 5)
@@ -153,7 +153,7 @@ class _DaftarAntrianViewState extends State<DaftarAntrianView> {
                               return Container(
                                   margin: const EdgeInsets.only(left: 10),
                                   padding: const EdgeInsets.only(top: 30),
-                                  child: const Column(
+                                  child:  Column(
                                     children: [
                                       shimmerAntrian(),
                                       SizedBox(

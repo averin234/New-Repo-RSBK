@@ -108,7 +108,7 @@ class Item1 extends StatelessWidget {
               onTap: () {
                 showModalBottomSheet(
                   context: context,
-                  showDragHandle: true,
+                  enableDrag: false,
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.vertical(
                       top: Radius.circular(20),

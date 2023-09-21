@@ -72,7 +72,7 @@ class LoginForm extends StatelessWidget {
                 dense: true,
                 onTap: () => showModalBottomSheet(
                   isScrollControlled: true,
-                  showDragHandle: true,
+                  enableDrag: false,
                   context: context,
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.vertical(
@@ -135,8 +135,7 @@ class LoginForm extends StatelessWidget {
                     if (aksesPX.code == 500) {
                       showModalBottomSheet(
                         context: context,
-                        enableDrag: true,
-                        showDragHandle: true,
+                        enableDrag: false,
                         shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.vertical(
                             top: Radius.circular(20),
@@ -145,11 +144,13 @@ class LoginForm extends StatelessWidget {
                         builder: (context) => buildSheet(),
                       );
                     } else if (aksesPX.code == 300) {
-                      Get.snackbar(aksesPX.code.toString(), aksesPX.msg.toString());
+                      Get.snackbar(
+                          aksesPX.code.toString(), aksesPX.msg.toString());
                     } else if (aksesPX.code == 200) {
                       Get.offAllNamed(Routes.HOME);
                     } else {
-                      Get.snackbar(aksesPX.code.toString(), aksesPX.msg.toString());
+                      Get.snackbar(
+                          aksesPX.code.toString(), aksesPX.msg.toString());
                     }
                   } else {
                     Get.snackbar('404', 'Username dan Password harus di Isi');
@@ -311,7 +312,7 @@ Widget LupaPassword(context) {
           const SizedBox(
             height: 30,
           ),
-          const Column(
+          Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -403,7 +404,7 @@ Widget LupaPassword(context) {
                     color: Colors.green,
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: const Column(
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

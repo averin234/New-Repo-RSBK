@@ -103,7 +103,7 @@ class _DetailPoliViewState extends State<DetailPoliView> {
         margin: const EdgeInsets.symmetric(vertical: 2, horizontal: 0),
         child: Row(
           children: <Widget>[
-            const SizedBox(
+            SizedBox(
               width: 230,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
