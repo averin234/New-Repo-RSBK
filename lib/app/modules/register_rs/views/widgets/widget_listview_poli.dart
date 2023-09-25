@@ -25,6 +25,7 @@ class CardListViewPoli extends StatelessWidget {
       child: InkWell(
         onTap: () => isNoHome == false
             ? showModalBottomSheet(
+                showDragHandle: true,
                 context: context,
                 isDismissible: true,
                 enableDrag: false,
@@ -43,6 +44,7 @@ class CardListViewPoli extends StatelessWidget {
                 },
               )
             : showModalBottomSheet(
+                showDragHandle: true,
                 context: context,
                 enableDrag: false,
                 shape: const RoundedRectangleBorder(

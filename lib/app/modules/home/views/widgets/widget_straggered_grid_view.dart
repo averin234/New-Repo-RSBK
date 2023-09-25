@@ -61,6 +61,7 @@ class WidgetStraggeredGridView extends StatelessWidget {
           ),
           CustomCard(
             onTap: () => showModalBottomSheet(
+              showDragHandle: true,
               context: context,
               enableDrag: false,
               shape: RoundedRectangleBorder(
@@ -220,6 +221,7 @@ class WidgetStraggeredGridView extends StatelessWidget {
           ),
           CustomCard(
             onTap: () => showModalBottomSheet(
+              showDragHandle: true,
               context: context,
               enableDrag: false,
               shape: RoundedRectangleBorder(

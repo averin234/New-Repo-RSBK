@@ -71,6 +71,7 @@ class LoginForm extends StatelessWidget {
               child: ListTile(
                 dense: true,
                 onTap: () => showModalBottomSheet(
+                  showDragHandle: true,
                   isScrollControlled: true,
                   enableDrag: false,
                   context: context,
@@ -134,6 +135,7 @@ class LoginForm extends StatelessWidget {
                     );
                     if (aksesPX.code == 500) {
                       showModalBottomSheet(
+                        showDragHandle: true,
                         context: context,
                         enableDrag: false,
                         shape: const RoundedRectangleBorder(

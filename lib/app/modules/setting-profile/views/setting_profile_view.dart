@@ -208,6 +208,7 @@ class SettingProfileView extends GetView<SettingProfileController> {
                   ),
                   InkWell(
                     onTap: () => showModalBottomSheet(
+                      showDragHandle: true,
                       context: context,
                       enableDrag: false,
                       shape: const RoundedRectangleBorder(
@@ -245,8 +246,9 @@ class SettingProfileView extends GetView<SettingProfileController> {
                   ),
                   InkWell(
                     onTap: () => showModalBottomSheet(
+                      showDragHandle: true,
                       context: context,
-                      enableDrag: false,
+                      enableDrag: true,
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.vertical(
                           top: Radius.circular(20),
@@ -279,6 +281,7 @@ class SettingProfileView extends GetView<SettingProfileController> {
             ),
             InkWell(
               onTap: () => showModalBottomSheet(
+                showDragHandle: true,
                 context: context,
                 enableDrag: false,
                 shape: const RoundedRectangleBorder(

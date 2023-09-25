@@ -104,6 +104,7 @@ class Item1 extends StatelessWidget {
           Expanded(
             child: InkWell(
               onTap: () => showModalBottomSheet(
+                showDragHandle: true,
                 context: context,
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.vertical(
