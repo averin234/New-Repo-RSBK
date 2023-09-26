@@ -86,7 +86,7 @@ class CardFromtele2 extends StatelessWidget {
             obscureText: isPassword,
             decoration: const InputDecoration(
                 border: InputBorder.none,
-                fillColor: Color(0xffECFAF5),
+                fillColor: Color(0xfff6f6f6),
                 filled: true),
           )
         ],
@@ -268,9 +268,8 @@ Widget _calender(String title, {required TextEditingController controller}) {
             ),
           ),
           suffixIcon:
-          Icon(Icons.calendar_month_rounded, color: Color(0xff08D2A1)),
+          Icon(Icons.calendar_month_rounded, color: Color(0xff4babe7)),
           filled: true,
-          fillColor: Color(0xffECFAF5),
         ),
         controller: controller,
         onTap: () async {

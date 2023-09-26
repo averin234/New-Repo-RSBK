@@ -52,7 +52,7 @@ class WidgetTitle3 extends GetView<RegisterTelemedicController> {
                       padding: const EdgeInsets.only(left: 14, right: 14),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(14),
-                        color: const Color(0xff08D2A1),
+                        color: const Color(0xff4babe7),
                       ),
                       elevation: 0,
                     ),
@@ -69,10 +69,9 @@ class WidgetTitle3 extends GetView<RegisterTelemedicController> {
                       padding: null,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(14),
-                        color: const Color(0xff08D2A1),
                       ),
-                      elevation: 1,
-                      offset: const Offset(1, 0),
+                      elevation: 0,
+                      offset: const Offset(2, 0),
                       scrollbarTheme: ScrollbarThemeData(
                         radius: const Radius.circular(40),
                         thickness: MaterialStateProperty.all<double>(6),

@@ -14,7 +14,6 @@ class RegisterTelemedicView extends GetView<RegisterTelemedicController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFECFAF5),
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
@@ -24,7 +23,7 @@ class RegisterTelemedicView extends GetView<RegisterTelemedicController> {
             stretch: true,
             leading: IconButton(
                 icon: const Icon(Icons.arrow_circle_left_rounded),
-                color: Colors.green,
+                color: Colors.blue,
                 iconSize: 40,
                 onPressed: () {
                   Get.back();
@@ -44,10 +43,6 @@ class RegisterTelemedicView extends GetView<RegisterTelemedicController> {
             delegate: SliverChildListDelegate([
               Column(
                 children: const [
-                  SizedBox(
-                    height: 0,
-                  ),
-                  VerticalSliderDemo2(),
                   SizedBox(
                     height: 10,
                   ),
@@ -140,7 +135,7 @@ class RegisterTelemedicView extends GetView<RegisterTelemedicController> {
                     gradient: LinearGradient(
                       begin: Alignment.centerLeft,
                       end: Alignment.centerRight,
-                      colors: [Color(0xff08D2A1), Color(0xff08D2A1)],
+                      colors: [Color(0xff4babe7), Color(0xff4babe7)],
                     ),
                   ),
                   child: const Text(

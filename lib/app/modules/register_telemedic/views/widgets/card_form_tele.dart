@@ -243,7 +243,7 @@ class CustomRadio extends GetView<RegisterTelemedicController> {
         side: BorderSide(
             width: (controller.selectedPayment.value == index) ? 2.0 : 0.5,
             color: (controller.selectedPayment.value == index)
-                ? const Color(0xff08D2A1)
+                ? const Color(0xff4babe7)
                 : const Color(0xff4babe7)),
       ),
       child: Stack(
@@ -251,7 +251,7 @@ class CustomRadio extends GetView<RegisterTelemedicController> {
           const Center(
               child: Text(
                 "Pasien Baru",
-                style: TextStyle(color: Color(0xff08D2A1)),
+                style: TextStyle(color: Color(0xff4babe7)),
               )),
           if (controller.selectedPayment.value == index)
             const Positioned(top: 5, right: 5, child: Text("")),
@@ -270,7 +270,7 @@ class CustomRadio extends GetView<RegisterTelemedicController> {
         side: BorderSide(
             width: (controller.selectedPayment.value == index) ? 2.0 : 0.5,
             color: (controller.selectedPayment.value == index)
-                ? Color(0xff08D2A1)
+                ? Color(0xff4babe7)
                 : Color(0xff4babe7)),
       ),
       child: Stack(
@@ -278,7 +278,7 @@ class CustomRadio extends GetView<RegisterTelemedicController> {
           const Center(
               child: Text(
                 "Pasien Lama",
-                style: TextStyle(color: Color(0xff08D2A1)),
+                style: TextStyle(color: Color(0xff4babe7)),
               )),
           if (controller.selectedPayment.value == index)
             const Positioned(top: 5, right: 5, child: Text("")),

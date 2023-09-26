@@ -60,17 +60,9 @@ class WidgetStraggeredGridView extends StatelessWidget {
             ),
           ),
           CustomCard(
-            onTap: () => showModalBottomSheet(
-              showDragHandle: true,
-              context: context,
-              enableDrag: false,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.vertical(
-                  top: Radius.circular(20),
-                ),
-              ),
-              builder: (context) => buildSheet(),
-            ),
+           onTap: () {
+             Get.toNamed(Routes.REGISTER_TELEMEDIC);
+           },
             shadow: false,
             shadowBlur: 0,
             width: double.infinity,
