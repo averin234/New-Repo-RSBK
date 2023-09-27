@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rsbkcare/app/data/componen/data_regist_model.dart';
+import 'package:rsbkcare/app/data/componen/fetch_data.dart';
 import 'package:rsbkcare/app/data/componen/images.dart';
 import 'package:rsbkcare/app/data/componen/local_storage.dart';
 import 'package:rsbkcare/app/data/componen/publics.dart';
@@ -222,7 +223,7 @@ class SettingProfileView extends GetView<SettingProfileController> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Ubah kata Sandi',
+                          'Ubah Password',
                           style: TextStyle(
                             fontWeight: FontWeight.w500,
                           ),
@@ -369,9 +370,9 @@ class SettingProfileView extends GetView<SettingProfileController> {
                       child: Center(
                           child: Column(
                         children: [
-                          Text('Aplikasi masih pada tahap mengembangan'),
+                          Text('Aplikasi masih pada tahap pengembangan'),
                           Text('mohon maaf atas ketidak nyamanan '),
-                          Text('saat menggunakan aplikasi RSBK HealthCare '),
+                          Text('saat menggunakan aplikasi RSBK HealthCare'),
                         ],
                       )),
                     ),
@@ -395,7 +396,7 @@ class SettingProfileView extends GetView<SettingProfileController> {
           ),
           const Padding(
             padding: EdgeInsets.only(left: 20),
-            child: Text('Ubah Kata Sandi',
+            child: Text('Ubah Password',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
           ),
           const SizedBox(
@@ -419,7 +420,7 @@ class SettingProfileView extends GetView<SettingProfileController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Kata Sandi Lama',
+                          'Password Lama',
                           style: GoogleFonts.nunito(
                               fontSize: 13, fontWeight: FontWeight.bold),
                         ),
@@ -427,6 +428,49 @@ class SettingProfileView extends GetView<SettingProfileController> {
                           height: 10,
                         ),
                         TextField(
+                          textInputAction: TextInputAction.next,
+                          controller: controller.pwlama,
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(10.0),
+                                ),
+                                borderSide: BorderSide(
+                                  width: 0,
+                                  style: BorderStyle.none,
+                                ),
+                              ),
+                              fillColor: Theme.of(context).brightness ==
+                                      Brightness.light
+                                  ? Color(0xffecf8ff)
+                                  : Color(0xff404258),
+                              filled: true),
+                        )
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    margin: const EdgeInsets.symmetric(
+                        vertical: 10, horizontal: 20),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Password Baru',
+                          style: GoogleFonts.nunito(
+                              fontSize: 13, fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        TextField(
+                          controller: controller.pwbaru,
                           textInputAction: TextInputAction.next,
                           decoration: InputDecoration(
                               border: OutlineInputBorder(
@@ -460,7 +504,7 @@ class SettingProfileView extends GetView<SettingProfileController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Kata Sandi Baru',
+                          'Konfirmasi Password Baru',
                           style: GoogleFonts.nunito(
                               fontSize: 13, fontWeight: FontWeight.bold),
                         ),
@@ -468,47 +512,7 @@ class SettingProfileView extends GetView<SettingProfileController> {
                           height: 10,
                         ),
                         TextField(
-                          textInputAction: TextInputAction.next,
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(10.0),
-                                ),
-                                borderSide: BorderSide(
-                                  width: 0,
-                                  style: BorderStyle.none,
-                                ),
-                              ),
-                              fillColor: Theme.of(context).brightness ==
-                                      Brightness.light
-                                  ? Color(0xffecf8ff)
-                                  : Color(0xff404258),
-                              filled: true),
-                        )
-                      ],
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    margin: const EdgeInsets.symmetric(
-                        vertical: 10, horizontal: 20),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Confirm Kata Sandi Baru',
-                          style: GoogleFonts.nunito(
-                              fontSize: 13, fontWeight: FontWeight.bold),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        TextField(
+                          controller: controller.pwbaruconfirm,
                           textInputAction: TextInputAction.next,
                           decoration: InputDecoration(
                               border: OutlineInputBorder(
@@ -543,7 +547,48 @@ class SettingProfileView extends GetView<SettingProfileController> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               GestureDetector(
-                onTap: () => Get.back(),
+                onTap: () async {
+                  if (controller.pwbaru.text == '' &&
+                      controller.pwlama.text == '') {
+                    Get.snackbar(
+                      '500',
+                      'Password Lama / Password Baru / Konfirmasi Password Baru Harus Diisi',
+                    );
+                  } else {
+                    if (controller.pwbaru.text ==
+                        controller.pwbaruconfirm.text) {
+                      final postUbahPass = await API.postUbahPassword(
+                          email: controller.dataRegist.value.email ?? '',
+                          pw_lama: controller.pwlama.text,
+                          pw_baru: controller.pwbaru.text);
+                      if (postUbahPass.code != 200) {
+                        Get.snackbar(
+                          postUbahPass.code.toString(),
+                          postUbahPass.msg ?? '',
+                        );
+                      } else {
+                        Get.back();
+                        controller.pwbaru.text = '';
+                        controller.pwbaruconfirm.text = '';
+                        controller.pwlama.text = '';
+                        Get.snackbar(
+                          postUbahPass.code.toString(),
+                          postUbahPass.msg ?? '',
+                        );
+                        await LocalStorages.setDataRegist(
+                          DataRegist(
+                            password: controller.pwbaru.text,
+                          ),
+                        );
+                      }
+                    } else {
+                      Get.snackbar(
+                        '500',
+                        'Password Baru dan Konfirmasi Password Baru tidak sesuai',
+                      );
+                    }
+                  }
+                },
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(7),

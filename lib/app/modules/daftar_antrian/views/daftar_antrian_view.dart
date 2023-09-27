@@ -142,18 +142,12 @@ class _DaftarAntrianViewState extends State<DaftarAntrianView> {
                                     ConnectionState.waiting &&
                                 snapshot.data != null) {
                               final scan = snapshot.data!;
-                              if (scan.code == 500) {
-                                return Center(
-                                  child: listAntrian(scan),
-                                );
-                              } else {
-                                return listAntrian(scan);
-                              }
+                              return listAntrian(scan);
                             } else {
                               return Container(
                                   margin: const EdgeInsets.only(left: 10),
                                   padding: const EdgeInsets.only(top: 30),
-                                  child:  Column(
+                                  child: Column(
                                     children: [
                                       shimmerAntrian(),
                                       SizedBox(

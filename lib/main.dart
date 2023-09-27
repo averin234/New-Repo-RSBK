@@ -18,14 +18,14 @@ void main() async {
   ]);
   await GetStorage.init('token_rsbk');
   await GetStorage.init('dataRegist_rsbk');
-  DataPx cekData = await API.getDataPx(
+  DataPx cekData = await API.cekDataPx(
       noKtp: Publics.controller.getDataRegist.value.noKtp ?? '');
-  runApp(MyApp(msg: cekData.msg ?? 'Invalid token: Expired'));
+  runApp(MyApp(code: cekData.code ?? 500));
 }
 
 class MyApp extends StatelessWidget {
-  final String? msg;
-  const MyApp({super.key, this.msg});
+  final int? code;
+  const MyApp({super.key, this.code});
 
   @override
   Widget build(BuildContext context) {
@@ -43,10 +43,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // themeMode: ThemeMode.light,
       // ...
-      initialRoute: msg == 'Invalid token: Expired' ||
-              msg == 'Invalid token: Incomplete segments'
-          ? Routes.NO_HOME
-          : Routes.HOME,
+      initialRoute: code == 500 ? Routes.NO_HOME : Routes.HOME,
       getPages: AppPages.routes,
     );
   }

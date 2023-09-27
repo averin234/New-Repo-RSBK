@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:rsbkcare/app/data/componen/fetch_data.dart';
+import 'package:rsbkcare/app/data/model/regist_hemo/dokter_hemo.dart';
 import 'package:rsbkcare/app/modules/edit-profile/views/widgets/mydropdown.dart';
 import 'package:rsbkcare/app/modules/register_telemedic/controllers/register_telemedic_controller.dart';
 import '../../../../data/model/dropdown_model.dart';
@@ -95,10 +96,10 @@ class CardFromtele2 extends StatelessWidget {
   }
 
   Widget _myDropDown(
-      String title, {
-        required TextEditingController controller,
-        required List<Dropdowns> items,
-      }) {
+    String title, {
+    required TextEditingController controller,
+    required List<Dropdowns> items,
+  }) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       child: Column(
@@ -107,7 +108,7 @@ class CardFromtele2 extends StatelessWidget {
           Text(
             title,
             style:
-            GoogleFonts.nunito(fontSize: 13, fontWeight: FontWeight.bold),
+                GoogleFonts.nunito(fontSize: 13, fontWeight: FontWeight.bold),
           ),
           const SizedBox(
             height: 10,
@@ -119,11 +120,11 @@ class CardFromtele2 extends StatelessWidget {
   }
 
   Widget _myDropDown1(
-      String title, {
-        required TextEditingController controller,
-        required TextEditingController controller1,
-        required List<Dropdowns> items,
-      }) {
+    String title, {
+    required TextEditingController controller,
+    required TextEditingController controller1,
+    required List<Dropdowns> items,
+  }) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       child: Column(
@@ -132,7 +133,7 @@ class CardFromtele2 extends StatelessWidget {
           Text(
             title,
             style:
-            GoogleFonts.nunito(fontSize: 13, fontWeight: FontWeight.bold),
+                GoogleFonts.nunito(fontSize: 13, fontWeight: FontWeight.bold),
           ),
           const SizedBox(
             height: 10,
@@ -213,14 +214,14 @@ class CardFromtele2 extends StatelessWidget {
                   if (snapshot.hasData &&
                       snapshot.connectionState != ConnectionState.waiting &&
                       snapshot.data != null) {
-                    final dokter = snapshot.data!.list!;
+                    final dokter = snapshot.data!.list ?? [Lists()];
                     return _myDropDown1(
                       "Dokter Penanggung Jawab :",
                       items: List.generate(
                         dokter.length,
-                            (index) => Dropdowns(
-                          kategori: dokter[index].namaDokter!,
-                          initialValue: dokter[index].kodeDokter!,
+                        (index) => Dropdowns(
+                          kategori: dokter[index].namaDokter ?? '',
+                          initialValue: dokter[index].kodeDokter ?? '',
                         ),
                       ),
                       controller: controller.kodeDokterController,
@@ -268,7 +269,7 @@ Widget _calender(String title, {required TextEditingController controller}) {
             ),
           ),
           suffixIcon:
-          Icon(Icons.calendar_month_rounded, color: Color(0xff4babe7)),
+              Icon(Icons.calendar_month_rounded, color: Color(0xff4babe7)),
           filled: true,
         ),
         controller: controller,
@@ -311,7 +312,7 @@ class _CustomRadioState extends State<CustomRadio> {
       style: OutlinedButton.styleFrom(
         padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
         shape:
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         side: BorderSide(
             width: (selectedPayment == index) ? 2.0 : 0.5,
             color: (selectedPayment == index)
@@ -322,9 +323,9 @@ class _CustomRadioState extends State<CustomRadio> {
         children: [
           const Center(
               child: Text(
-                "Rujukan",
-                style: TextStyle(color: Color(0xff4babe7)),
-              )),
+            "Rujukan",
+            style: TextStyle(color: Color(0xff4babe7)),
+          )),
           if (selectedPayment == index)
             const Positioned(top: 5, right: 5, child: Text("")),
         ],
@@ -342,7 +343,7 @@ class _CustomRadioState extends State<CustomRadio> {
       style: OutlinedButton.styleFrom(
         padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
         shape:
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         side: BorderSide(
             width: (selectedPayment == index) ? 2.0 : 0.5,
             color: (selectedPayment == index)
@@ -353,9 +354,9 @@ class _CustomRadioState extends State<CustomRadio> {
         children: [
           const Center(
               child: Text(
-                "Kontrol",
-                style: TextStyle(color: Color(0xff308366)),
-              )),
+            "Kontrol",
+            style: TextStyle(color: Color(0xff308366)),
+          )),
           if (selectedPayment == index)
             const Positioned(top: 5, right: 5, child: Text("")),
         ],

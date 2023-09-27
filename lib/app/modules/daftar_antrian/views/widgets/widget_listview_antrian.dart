@@ -47,10 +47,14 @@ class CardListViewAntrian extends StatelessWidget {
                       const SizedBox(
                         width: 10,
                       ),
-                      Text(
-                        list.namaBagian ?? '',
-                        style: GoogleFonts.nunito(
-                            fontWeight: FontWeight.bold, fontSize: 17),
+                      Expanded(
+                        child: Text(
+                          list.namaBagian ?? '',
+                          style: GoogleFonts.nunito(
+                              fontWeight: FontWeight.bold, fontSize: 17),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
+                        ),
                       ),
                     ]),
                 const SizedBox(

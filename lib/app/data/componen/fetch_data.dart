@@ -41,6 +41,7 @@ class API {
   static const _getAntrianDokter = '$_baseUrl/get-antrian-dokter.php';
   static const _postDaftarPx = '$_baseUrl/post-daftar-px.php';
   static const _getLupaPassword = "$_baseUrl/post-lupa-password.php";
+  static const _postUbahPassword = "$_baseUrl/post-ubah-password.php";
   static const _getAsuransiPx = '$_baseUrl/get-asuransi-px.php';
   static const _getDokterHemo = '$_baseUrl/get-dokter-hemo.php';
   static const _postDaftarHemo = '$_baseUrl/post-daftar-hemo.php';
@@ -52,6 +53,7 @@ class API {
   static const _scanAntrianKlinik = '$_baseUrl/scan_antrian_klinik.php';
   static const _getDataPasien = '$_baseUrl/get-data-pasien.php';
   static const _getDataPx = '$_baseUrl/get-data-px.php';
+  static const _cekDataPx = '$_baseUrl/cek-data-px.php';
   static const _editPasienLama = '$_baseUrl/edit_pasien_lama.php';
   static const _editFotoPasien = '$_baseUrl/edit_foto_pasien.php';
   static const _editFotoKtp = '$_baseUrl/edit_foto_ktp.php';
@@ -82,6 +84,40 @@ class API {
     };
     var response = await Dio().post(
       _getLupaPassword,
+      options: Options(
+        headers: {
+          "Content-Type": "application/json",
+          "X-Api-Token": token.token,
+        },
+      ),
+      data: data,
+    );
+    final datas = jsonDecode(response.data);
+    final obj = CheckUp.fromJson(datas);
+    if (obj.msg == "Invalid token: Expired") {
+      Get.offAllNamed(Routes.LOGIN);
+      Get.snackbar(
+        obj.code.toString(),
+        obj.msg.toString(),
+      );
+    }
+    print(obj.toJson());
+    return obj;
+  }
+
+  static Future<CheckUp> postUbahPassword({
+    required String email,
+    required String pw_lama,
+    required String pw_baru,
+  }) async {
+    var token = Publics.controller.getToken.value;
+    final data = {
+      "em": email,
+      "pl": pw_lama,
+      "pb": pw_baru,
+    };
+    var response = await Dio().post(
+      _postUbahPassword,
       options: Options(
         headers: {
           "Content-Type": "application/json",
@@ -718,6 +754,24 @@ class API {
     var data = {"nt": noKtp};
     var response = await Dio().post(
       _getDataPx,
+      options: Options(
+        headers: {
+          "Content-Type": "application/json",
+          "X-Api-Token": token.token,
+        },
+      ),
+      data: data,
+    );
+    final json = jsonDecode(response.data);
+    final obj = DataPx.fromJson(json);
+    return obj;
+  }
+
+  static Future<DataPx> cekDataPx({required String noKtp}) async {
+    var token = Publics.controller.getToken.value;
+    var data = {"nt": noKtp};
+    var response = await Dio().post(
+      _cekDataPx,
       options: Options(
         headers: {
           "Content-Type": "application/json",
