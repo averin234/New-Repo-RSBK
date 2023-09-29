@@ -20,8 +20,9 @@ class MyDropDown extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.only(top: 5,bottom: 5),
       decoration: BoxDecoration(
+        border: Border.all(width: 1, color: Color(0xffeaeaea)),
         color: Theme.of(context).brightness == Brightness.light
-          ? Color(0xffecf8ff)
+          ? Color(0xffffffff)
           : Color(0xff2C3333),
         borderRadius: const BorderRadius.all(
           const Radius.circular(10.0),

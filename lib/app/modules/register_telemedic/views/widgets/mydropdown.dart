@@ -11,7 +11,7 @@ class WidgetTitle3 extends GetView<RegisterTelemedicController> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.fromLTRB(25, 0, 10, 0),
+      padding: const EdgeInsets.fromLTRB(14, 0, 14, 0),
       child: Column(children: [
         Row(
           children: [
@@ -34,7 +34,7 @@ class WidgetTitle3 extends GetView<RegisterTelemedicController> {
                             style: const TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                              color: Color(0xff4babe7),
                             ),
                             overflow: TextOverflow.ellipsis,
                           ),
@@ -49,16 +49,17 @@ class WidgetTitle3 extends GetView<RegisterTelemedicController> {
                     },
                     buttonStyleData: ButtonStyleData(
                       height: 40,
-                      padding: const EdgeInsets.only(left: 14, right: 14),
+                      padding: const EdgeInsets.only(left: 10, right: 10),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(14),
-                        color: const Color(0xff4babe7),
+                        border: Border.all(width: 1, color: Color(0xffeaeaea)),
+                        borderRadius: BorderRadius.circular(10),
                       ),
                       elevation: 0,
                     ),
                     iconStyleData: const IconStyleData(
                       icon: Icon(
                         Icons.arrow_forward_ios_outlined,
+                        color:  Colors.grey,
                       ),
                       iconSize: 14,
                       iconEnabledColor: Colors.white,

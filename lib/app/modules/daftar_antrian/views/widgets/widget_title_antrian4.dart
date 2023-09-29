@@ -12,12 +12,27 @@ class _WidgetTitleAntrian4State extends State<WidgetTitleAntrian4> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+      padding: const EdgeInsets.fromLTRB(20, 0, 10, 0),
       child: Row(
         children: [
           Expanded(
-            child: Text("Antrean Saat ini", style: MyStyle.textTitleBlack),
+            child: Text("Antrian Saat ini", style: MyStyle.textTitleBlack),
           ),
+          const SizedBox(
+            width: 10,
+          ),
+          // Text(
+          //   "Details",
+          //   textAlign: TextAlign.center,
+          //   style: GoogleFonts.nunito(
+          //     color: MyColors.blackText,
+          //     fontSize: MyFontSize.medium1,
+          //   ),
+          // ),
+          const SizedBox(
+            width: 10,
+          ),
+          // Icon(Icons.arrow_forward_ios_outlined, size: 15,)
         ],
       ),
     );

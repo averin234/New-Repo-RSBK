@@ -23,6 +23,7 @@ import 'package:rsbkcare/app/data/model/regist_rs/antrian_dokter.dart';
 import 'package:rsbkcare/app/data/model/regist_rs/dokter_by_name.dart';
 import 'package:rsbkcare/app/routes/app_pages.dart';
 
+import '../model/antrian_rs/jadwal_px_hemo.dart';
 import '../model/login_and_regist/CheckUp.dart';
 import '../model/regist_hemo/daftar_hemo.dart';
 
@@ -602,7 +603,7 @@ class API {
     return obj;
   }
 
-  static Future<DaftarPXBaru> getJadwalHemoPx(
+  static Future<JadwalHemo> getJadwalHemoPx(
       {required String noKtp, required String tgl}) async {
     var token = Publics.controller.getToken.value;
     var data = {"nt": noKtp, "tgl": tgl};
@@ -617,7 +618,7 @@ class API {
       data: data,
     );
     final json = jsonDecode(response.data);
-    final obj = DaftarPXBaru.fromJson(json);
+    final obj = JadwalHemo.fromJson(json);
     if (obj.msg == 'Invalid token: Expired') {
       Get.offAllNamed(Routes.LOGIN);
       Get.snackbar(

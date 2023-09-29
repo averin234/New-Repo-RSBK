@@ -1,11 +1,11 @@
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:rsbkcare/app/data/componen/publics.dart';
+import 'package:rsbkcare/app/data/componen/local_storage.dart';
 
 class DaftarAntrianController extends GetxController {
   //TODO: Implement DaftarAntrianController
 
-  final dataPasien = Publics.controller.getDataRegist;
+  final dataPasien = LocalStorages.getDataRegist;
   final date = ''.obs;
 
   @override

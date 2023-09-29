@@ -55,7 +55,7 @@ class CardFromPBJS extends StatelessWidget {
     );
   }
 
-  Widget _entryFieldNIK(String title,
+  Widget _entryFieldNIK( String title,
       {bool isPassword = false, required TextEditingController controller}) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -77,9 +77,14 @@ class CardFromPBJS extends StatelessWidget {
             keyboardType: TextInputType.number,
             textInputAction: TextInputAction.next,
             obscureText: isPassword,
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  width: 1, color: Color(0xffeaeaea),),
+                borderRadius: BorderRadius.circular(10.0),//<-- SEE HERE
+              ),
               border: InputBorder.none,
-              fillColor: Color(0xffECFAF5),
+              fillColor: Color(0xffffffff),
               filled: true,
             ),
           )
@@ -162,7 +167,6 @@ class CardFromPBJS extends StatelessWidget {
                   "Form BPJS",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: Color(0xff08D2A1),
                   ),
                 ),
                 _entryFieldNIK("No Kartu BPJS :",
@@ -224,15 +228,15 @@ class CustomRadio extends GetView<RegisterTelemedicController> {
                               ? 2.0
                               : 0.5,
                           color: (controller.jnsKunjBPJSController.value == '1')
-                              ? const Color(0xff0EBE7F)
-                              : const Color(0xff4babe7)),
+                              ?  Color(0xff4babe7)
+                              :  Color(0xff4babe7)),
                     ),
                     child: Stack(
                       children: [
                         const Center(
                             child: Text(
                               "Rujukan",
-                              style: TextStyle(color: Color(0xff0EBE7F)),
+                              style: TextStyle(color: Color(0xff4babe7)),
                             )),
                         if (controller.jnsKunjBPJSController.value == '1')
                           const Positioned(top: 5, right: 5, child: Text("")),
@@ -260,7 +264,7 @@ class CustomRadio extends GetView<RegisterTelemedicController> {
                               ? 2.0
                               : 0.5,
                           color: (controller.jnsKunjBPJSController.value == '2')
-                              ? const Color(0xff0EBE7F)
+                              ? Color(0xff4babe7)
                               : const Color(0xff4babe7)),
                     ),
                     child: Stack(
@@ -268,7 +272,7 @@ class CustomRadio extends GetView<RegisterTelemedicController> {
                         const Center(
                             child: Text(
                               "Kontrol",
-                              style: TextStyle(color: Color(0xff0EBE7F)),
+                              style: TextStyle(color: Color(0xff4babe7)),
                             )),
                         if (controller.jnsKunjBPJSController.value == '2')
                           const Positioned(top: 5, right: 5, child: Text("")),

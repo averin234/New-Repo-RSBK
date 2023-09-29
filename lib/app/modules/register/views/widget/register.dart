@@ -14,7 +14,7 @@ class MyRegister extends GetView<RegisterController> {
   Widget build(BuildContext context) {
     return Card(
         color: Theme.of(context).brightness == Brightness.light
-            ? Color(0xfff6f9fe)
+            ? Color(0xffffffff)
             : Color(0xff404258),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),
@@ -25,7 +25,7 @@ class MyRegister extends GetView<RegisterController> {
               height: 20,
             ),
             Text(
-              'ISI DATA DIRI',
+              'ISI DATA REGISTRASI',
               style: GoogleFonts.nunito(
                 fontWeight: FontWeight.bold,
                 fontSize: 15,

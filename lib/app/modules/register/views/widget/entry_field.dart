@@ -21,7 +21,6 @@ class MyEntryField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-
       margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,7 +37,7 @@ class MyEntryField extends StatelessWidget {
             decoration: BoxDecoration(
               border:  Border.fromBorderSide(BorderSide(
                   color: Theme.of(context).brightness == Brightness.light
-                      ? Colors.white30
+                      ? Colors.white
                       : Color(0xff2C3333),
               ),),
               borderRadius: BorderRadius.circular(10),
@@ -52,6 +51,11 @@ class MyEntryField extends StatelessWidget {
             textInputAction: TextInputAction.next,
             readOnly: readonly?? false,
             decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                      width: 1, color: Color(0xffeaeaea),),
+                  borderRadius: BorderRadius.circular(10.0),//<-- SEE HERE
+                ),
                 border: OutlineInputBorder(
                   borderRadius: const BorderRadius.all(
                     const Radius.circular(10.0),
@@ -63,7 +67,7 @@ class MyEntryField extends StatelessWidget {
                 ),
                 suffixIcon: suffixIcon,
                 fillColor:  Theme.of(context).brightness == Brightness.light
-                    ? Color(0xffecf8ff)
+                    ? Color(0xffffffff)
                     : Color(0xff2C3333),
                 filled: true),
           ),

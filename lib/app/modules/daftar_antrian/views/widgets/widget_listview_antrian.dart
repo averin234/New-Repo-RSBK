@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rsbkcare/app/data/model/antrian_rs/jadwal_px.dart';
+import 'package:rsbkcare/app/data/model/profile_pasien/data_px.dart';
 import '../../../../data/componen/my_font_size.dart';
-import '../../../../data/model/profile_pasien/data_px.dart';
 import '../../../../routes/app_pages.dart';
 
 class CardListViewAntrian extends StatelessWidget {
@@ -15,95 +15,100 @@ class CardListViewAntrian extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        InkWell(
-          onTap: () {
-            Get.toNamed(Routes.DETAIL_ANTRIAN,
-                arguments: {'data': list, 'scan': scan});
-          },
-          child: Container(
-            margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-            padding: const EdgeInsets.only(top: 10, left: 20),
-            decoration: BoxDecoration(
-              border: Border.all(color: const Color(0x6cc7d1db)),
-              color: Theme.of(context).brightness == Brightness.light
-                  ? Colors.white
-                  : Color(0xff404258),
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Icon(
-                        Icons.local_hospital,
-                        color: Colors.grey,
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Expanded(
-                        child: Text(
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          InkWell(
+            onTap: () {
+              Get.toNamed(Routes.DETAIL_ANTRIAN,
+                  arguments: {'data': list, 'scan': scan});
+            },
+            child: Container(
+              padding: const EdgeInsets.only(top: 10, left: 20),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(15),
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color(0xFFe0e0e0).withOpacity(0.5),
+                    spreadRadius: 0,
+                    blurRadius: 10,
+                    offset: const Offset(2, 1), // changes position of shadow
+                  ),
+                ],
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Icon(
+                          Icons.local_hospital,
+                          color: Colors.grey,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Text(
                           list.namaBagian ?? '',
                           style: GoogleFonts.nunito(
-                              fontWeight: FontWeight.bold, fontSize: 17),
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 1,
+                              fontWeight: FontWeight.bold,
+                              color: const Color(0xff676666),
+                              fontSize: 17),
                         ),
+                      ]),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    list.namaKlinik ?? '',
+                    style: GoogleFonts.nunito(
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFF08D2A1),
+                        fontSize: MyFontSize.large2),
+                  ),
+                  const SizedBox(
+                    height: 9,
+                  ),
+                  Container(
+                    height: 1.5,
+                    width: 320.0,
+                    color: const Color(0xb3e8e7e7),
+                    margin: const EdgeInsets.only(bottom: 0),
+                  ),
+                  const SizedBox(
+                    height: 11,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Icon(
+                        Icons.calendar_month,
+                        color: Colors.grey,
                       ),
-                    ]),
-                const SizedBox(
-                  height: 5,
-                ),
-                Text(
-                  // 'rumah sakit pluit',
-                  list.namaKlinik ?? '',
-                  style: GoogleFonts.nunito(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blue,
-                      fontSize: MyFontSize.large2),
-                ),
-                const SizedBox(
-                  height: 9,
-                ),
-                const Divider(
-                  indent: 5,
-                  endIndent: 20,
-                  thickness: 1.5,
-                  height: 2,
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Icon(
-                      Icons.calendar_month,
-                      color: Colors.grey,
-                    ),
-                    const Text("Jadwal Antrean :"),
-                    Text(
-                      (list.tgl ?? '').substring(0, 10),
-                      style: GoogleFonts.nunito(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.blue,
-                          fontSize: 15),
-                    ),
-                    CustomButton(label: 'Lihat Detail', onPressed: () {}),
-                  ],
-                )
-              ],
+                      const Text("Jadwal Antrian :"),
+                      Text(
+                        (list.tgl ?? '').substring(0, 10),
+                        style: GoogleFonts.nunito(
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF08D2A1),
+                            fontSize: 15),
+                      ),
+                      CustomButton(label: 'Lihat Detail', onPressed: () {}),
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
-        ),
-      ],
+          const SizedBox(height: 5),
+        ],
+      ),
     );
   }
 }
@@ -126,7 +131,7 @@ class CustomButton extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           decoration: BoxDecoration(
-            color: const Color(0xff4babe7),
+            color: const Color(0xff08D2A1),
             borderRadius: BorderRadius.circular(5),
           ),
           child: Text(

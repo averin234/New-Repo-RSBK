@@ -90,7 +90,7 @@ class CardListViewHemo extends StatelessWidget {
                         Icons.calendar_month,
                         color: Colors.grey,
                       ),
-                      const Text("Jadwal Antrean :"),
+                      const Text("Jadwal Antrian :"),
                       Text(
                         (list.tgl ?? '').substring(0, 10),
                         style: GoogleFonts.nunito(

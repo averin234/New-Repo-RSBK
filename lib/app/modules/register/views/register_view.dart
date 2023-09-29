@@ -30,6 +30,24 @@ class RegisterView extends GetView<RegisterController> {
                     const SizedBox(
                       height: 20,
                     ),
+                    Container(
+                      margin: EdgeInsets.only(left: 10,right: 10),
+                    child : Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                    Image.asset(
+                      'assets/images/registrasi.png',
+                      width: 140,
+                      fit: BoxFit.cover,
+                    ),
+                        Expanded(// You can choose how the text scales
+                          child: Text(
+                            'Register akun Baru \n\nData diri anda terekam di database RSBK, Mohon periksa kembali data diri anda, dan lakukan refresh saat melakukan perubahan data diri',
+                            style: TextStyle(fontSize: 12.0), textAlign: TextAlign.justify,
+                          ),
+                        ),
+                    ],),),
                     const MyRegister(),
                     const SizedBox(
                       height: 20,
@@ -88,78 +106,87 @@ class RegisterView extends GetView<RegisterController> {
   }
 
   Widget _submitButton() {
-    return InkWell(
-      onTap: () async {
-        if (controller.namaController.text.isNotEmpty &&
-            controller.emailController.text.isNotEmpty &&
-            controller.nikPasienController.text.isNotEmpty &&
-            controller.jenisKelaminController.text.isNotEmpty &&
-            controller.tglLhrController.text.isNotEmpty &&
-            controller.noTelpController.text.isNotEmpty &&
-            controller.alamatController.text.isNotEmpty &&
-            controller.tempatLhrController.text.isNotEmpty &&
-            controller.alergiController.text.isNotEmpty &&
-            controller.golDarahController.text.isNotEmpty &&
-            controller.passwordController.value.text.isNotEmpty) {
-          Get.defaultDialog(
-            content: const CircularProgressIndicator(),
-            title: 'Loading..',
-            barrierDismissible: false,
-          );
-          if (controller.passwordController.value.text ==
-              controller.confirmPassController.value.text) {
-            dynamic daftarPXBaru = await API.postDaftarPxBaru(
-              namaPasien: controller.namaController.text,
-              email: controller.emailController.text,
-              noKtp: controller.nikPasienController.text,
-              tmpLhr: controller.tempatLhrController.text,
-              umurPasien:
-                  controller.umur(controller.tglLhrController.text).toString(),
-              jenisKelamin: controller.jenisKelaminController.text,
-              tanggalLahir: controller.tglLhrController.text,
-              noHp: controller.noTelpController.text,
-              alamat: controller.alamatController.text,
-              alergi: controller.alergiController.text,
-              golonganDarah: controller.golDarahController.text,
-              password: controller.passwordController.value.text,
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        primary: Color(0xff4babe7),
+        minimumSize: const Size.fromHeight(50),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12), // <-- Radius
+          ),
+      ),
+        onPressed:() async {
+          if (controller.namaController.text.isNotEmpty &&
+              controller.emailController.text.isNotEmpty &&
+              controller.nikPasienController.text.isNotEmpty &&
+              controller.jenisKelaminController.text.isNotEmpty &&
+              controller.tglLhrController.text.isNotEmpty &&
+              controller.noTelpController.text.isNotEmpty &&
+              controller.alamatController.text.isNotEmpty &&
+              controller.tempatLhrController.text.isNotEmpty &&
+              controller.alergiController.text.isNotEmpty &&
+              controller.golDarahController.text.isNotEmpty &&
+              controller.passwordController.value.text.isNotEmpty) {
+            Get.defaultDialog(
+              content: const CircularProgressIndicator(),
+              title: 'Loading..',
+              barrierDismissible: false,
             );
-            if (daftarPXBaru['code'] != 200) {
-              Get.snackbar(daftarPXBaru['code'].toString(),
-                  daftarPXBaru['msg'].toString());
+            if (controller.passwordController.value.text ==
+                controller.confirmPassController.value.text) {
+              dynamic daftarPXBaru = await API.postDaftarPxBaru(
+                namaPasien: controller.namaController.text,
+                email: controller.emailController.text,
+                noKtp: controller.nikPasienController.text,
+                tmpLhr: controller.tempatLhrController.text,
+                umurPasien:
+                controller.umur(controller.tglLhrController.text).toString(),
+                jenisKelamin: controller.jenisKelaminController.text,
+                tanggalLahir: controller.tglLhrController.text,
+                noHp: controller.noTelpController.text,
+                alamat: controller.alamatController.text,
+                alergi: controller.alergiController.text,
+                golonganDarah: controller.golDarahController.text,
+                password: controller.passwordController.value.text,
+              );
+              if (daftarPXBaru['code'] != 200) {
+                Get.snackbar(daftarPXBaru['code'].toString(),
+                    daftarPXBaru['msg'].toString());
+              } else {
+                Get.offAllNamed(Routes.HOME);
+              }
             } else {
-              Get.offAllNamed(Routes.HOME);
+              Get.snackbar(
+                  'Gagal Proses', 'Password dan Confirm Password berbeda');
             }
           } else {
-            Get.snackbar(
-                'Gagal Proses', 'Password dan Confirm Password berbeda');
+            Get.snackbar('title', 'message');
           }
-        } else {
-          Get.snackbar('title', 'message');
-        }
-      },
-      child: Container(
-        width: Get.width,
-        padding: const EdgeInsets.symmetric(vertical: 15),
-        alignment: Alignment.center,
-        decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(5)),
-            boxShadow: <BoxShadow>[
-              BoxShadow(
-                  color: Colors.white12,
-                  offset: Offset(2, 1),
-                  blurRadius: 1,
-                  spreadRadius: 2)
-            ],
-            gradient: LinearGradient(
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-                colors: [Color(0xff4babe7), Color(0xff4babe7)])),
-        child: Text(
-          'Register Sekarang',
-          style: GoogleFonts.nunito(fontSize: 15, color: Colors.white),
-        ),
-      ),
-    );
+        },
+        child: Text('Register Sekarang'),
+      );
+
+      // Container(
+      //   width: Get.width,
+      //   padding: const EdgeInsets.symmetric(vertical: 15),
+      //   alignment: Alignment.center,
+      //   decoration: const BoxDecoration(
+      //       borderRadius: BorderRadius.all(Radius.circular(5)),
+      //       boxShadow: <BoxShadow>[
+      //         BoxShadow(
+      //             color: Colors.white12,
+      //             offset: Offset(2, 1),
+      //             blurRadius: 1,
+      //             spreadRadius: 2)
+      //       ],
+      //       gradient: LinearGradient(
+      //           begin: Alignment.centerLeft,
+      //           end: Alignment.centerRight,
+      //           colors: [Color(0xff4babe7), Color(0xff4babe7)])),
+      //   child: Text(
+      //     'Register Sekarang',
+      //     style: GoogleFonts.nunito(fontSize: 15, color: Colors.white),
+      //   ),
+      // ),
   }
 
   Widget _loginAccountLabel() {

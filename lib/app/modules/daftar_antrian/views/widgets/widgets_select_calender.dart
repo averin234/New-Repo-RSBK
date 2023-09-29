@@ -9,40 +9,37 @@ class HorizontalWeekCalendarPackage1 extends GetView<DaftarAntrianController> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 10),
-            child: Text(
-              'Tanggal Antrean',
-              style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                    color: Colors.white,
-                    fontSize: 15,
-                  ),
-            ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 10, left: 10),
+          child: Text(
+            'Tanggal Antrian',
+            style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                  color: Colors.black54,
+                  fontSize: 15,
+                ),
           ),
-          const SizedBox(
-            height: 10,
-          ),
-          CalendarTimeline(
-            initialDate: DateTime.parse(controller.date.value),
-            firstDate: DateTime.now(),
-            lastDate: DateTime(2100, 15, 15),
-            onDateSelected: (date) {
-              controller.date.value = DateFormat('yyyy-MM-dd').format(date);
-            },
-            leftMargin: 60,
-            monthColor: Colors.white,
-            dayColor: Colors.white70,
-            activeDayColor: Colors.blue,
-            activeBackgroundDayColor: Colors.white,
-            dotsColor: Colors.blue,
-          ),
-        ],
-      ),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        CalendarTimeline(
+          initialDate: DateTime.parse(controller.date.value),
+          firstDate: DateTime.now(),
+          lastDate: DateTime(2100, 15, 15),
+          onDateSelected: (date) {
+            controller.date.value = DateFormat('yyyy-MM-dd').format(date);
+          },
+          leftMargin: 60,
+          monthColor: Colors.blueGrey,
+          dayColor: Colors.blueGrey,
+          activeDayColor: Colors.white,
+          activeBackgroundDayColor: Color(0xff4babe7),
+          dotsColor: Colors.white,
+        ),
+      ],
     );
   }
 }

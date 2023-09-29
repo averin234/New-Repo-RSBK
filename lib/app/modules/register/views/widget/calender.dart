@@ -34,6 +34,11 @@ class MyCalender extends StatelessWidget {
           readOnly: true,
           textInputAction: TextInputAction.next,
           decoration: InputDecoration(
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  width: 1, color: Color(0xffeaeaea),),
+                borderRadius: BorderRadius.circular(10.0),//<-- SEE HERE
+              ),
               border: OutlineInputBorder(
                 borderRadius: const BorderRadius.all(
                   const Radius.circular(10.0),
@@ -45,7 +50,7 @@ class MyCalender extends StatelessWidget {
               ),
               suffixIcon: Icon(Icons.calendar_month_rounded),
               fillColor: Theme.of(context).brightness == Brightness.light
-                  ? Color(0xffecf8ff)
+                  ? Colors.white
                   : Color(0xff2C3333),
               filled: true),
           controller: controller,

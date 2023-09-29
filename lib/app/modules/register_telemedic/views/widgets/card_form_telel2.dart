@@ -258,7 +258,12 @@ Widget _calender(String title, {required TextEditingController controller}) {
       TextField(
         readOnly: true,
         textInputAction: TextInputAction.next,
-        decoration: const InputDecoration(
+        decoration: InputDecoration(
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              width: 1, color: Color(0xffeaeaea),),
+            borderRadius: BorderRadius.circular(10.0),//<-- SEE HERE
+          ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.all(
               Radius.circular(10.0),
@@ -270,6 +275,7 @@ Widget _calender(String title, {required TextEditingController controller}) {
           ),
           suffixIcon:
               Icon(Icons.calendar_month_rounded, color: Color(0xff4babe7)),
+          fillColor: Color(0xffffffff),
           filled: true,
         ),
         controller: controller,

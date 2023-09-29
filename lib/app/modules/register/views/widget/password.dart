@@ -10,7 +10,7 @@ class MyPassWord extends GetView<RegisterController> {
   Widget build(BuildContext context) {
     return Card(
         color: Theme.of(context).brightness == Brightness.light
-            ? Color(0xfff6f9fe)
+            ? Colors.white
             : Color(0xff404258),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0), //<-- SEE HERE
@@ -78,6 +78,11 @@ class MyTextField extends StatelessWidget {
               obscureText: obscureText.value,
               textInputAction: TextInputAction.next,
               decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      width: 1, color: Color(0xffeaeaea),),
+                    borderRadius: BorderRadius.circular(10.0),//<-- SEE HERE
+                  ),
                   border: const OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(10.0),
@@ -101,7 +106,7 @@ class MyTextField extends StatelessWidget {
                         : Colors.grey,
                   ),
                   fillColor: Theme.of(context).brightness == Brightness.light
-                      ? Color(0xffecf8ff)
+                      ? Colors.white
                       : Color(0xff2C3333),
                   filled: true),
             );

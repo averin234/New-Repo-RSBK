@@ -22,7 +22,7 @@ class MyDropDown2 extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.only(top: 5, bottom: 5),
       decoration: const BoxDecoration(
-        color: Color(0xffECFAF5),
+        color: Colors.white,
         borderRadius: BorderRadius.all(
           Radius.circular(10.0),
         ),
@@ -34,11 +34,14 @@ class MyDropDown2 extends StatelessWidget {
         selectedItem: selectedItem,
         items: items,
         itemAsString: (item) => item.kategori,
-        dropdownDecoratorProps: const DropDownDecoratorProps(
+        dropdownDecoratorProps: DropDownDecoratorProps(
           dropdownSearchDecoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
             enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.transparent)),
+              borderSide: BorderSide(
+                width: 1, color: Color(0xffeaeaea),),
+              borderRadius: BorderRadius.circular(10.0),//<-- SEE HERE
+            ),
             border:
             OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
           ),

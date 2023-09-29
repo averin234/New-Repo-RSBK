@@ -67,6 +67,7 @@ class RegisterTelemedicView extends GetView<RegisterTelemedicController> {
         ),
         height: 75,
         margin: const EdgeInsets.symmetric(vertical: 2, horizontal: 0),
+        padding: EdgeInsets.only(right: 10, left: 10),
         child: Row(
           children: <Widget>[
             SizedBox(
@@ -82,8 +83,15 @@ class RegisterTelemedicView extends GetView<RegisterTelemedicController> {
               ),
             ),
             Expanded(
-              child: InkWell(
-                onTap: () async {
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Color(0xff4babe7),
+                  minimumSize: const Size.fromHeight(50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12), // <-- Radius
+                  ),
+                ),
+                onPressed:() async {
                   print(
                       'nama Pasien: ${controller.dataRegist.namaPasien ?? ''}');
                   print('no KTP: ${controller.dataRegist.noKtp ?? ''}');
@@ -118,35 +126,9 @@ class RegisterTelemedicView extends GetView<RegisterTelemedicController> {
                   Get.snackbar((daftarHemo.code ?? 500).toString(),
                       daftarHemo.msg ?? '');
                 },
-                child: Container(
-                  margin: const EdgeInsets.only(
-                      right: 15, left: 15, top: 10, bottom: 10),
-                  alignment: Alignment.center,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(5)),
-                    boxShadow: <BoxShadow>[
-                      BoxShadow(
-                        color: Colors.white12,
-                        offset: Offset(2, 1),
-                        blurRadius: 1,
-                        spreadRadius: 2,
-                      )
-                    ],
-                    gradient: LinearGradient(
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
-                      colors: [Color(0xff4babe7), Color(0xff4babe7)],
-                    ),
-                  ),
-                  child: const Text(
-                    "Lanjutkan",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                        color: Colors.white),
-                  ),
-                ),
+                child: Text('Lanjutkan'),
               ),
+
             ),
           ],
         ),
