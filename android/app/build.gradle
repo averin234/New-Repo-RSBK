@@ -18,8 +18,10 @@ if (flutterVersionCode == null) {
 
 def flutterVersionName = localProperties.getProperty('flutter.versionName')
 if (flutterVersionName == null) {
-    flutterVersionName = '1.0'
+    flutterVersionName = '1.0.0'
 }
+def(major, minor, patch) = flutterVersionName.tokenize( '.' )
+def versionCodeGlobal = major.toInteger()*10000 + minor.toInteger()*100 + patch.toInteger()
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
@@ -50,8 +52,8 @@ android {
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         minSdkVersion 24
         targetSdkVersion 33
-        versionCode 4
-        versionName "1.1.1"
+        versionCode versionCodeGlobal
+        versionName flutterVersionName
         multiDexEnabled true
     }
     signingConfigs {
@@ -60,6 +62,19 @@ android {
             storePassword '48family'
             keyAlias = 'Averin2023'
             keyPassword '48family'
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    def appName = "RSBK"
+                    def buildType = variant.buildType.name
+                    def newName
+                    if (buildType == 'debug'){
+                        newName = "app-${flutterVersionName}-debug.apk"
+                    } else {
+                        newName = "${appName}${flutterVersionName}_${variant.getFlavorName()}.apk"
+                    }
+                    outputFileName = newName
+                }
+            }
         }
     }
     buildTypes {
@@ -76,4 +91,12 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+
+android.applicationVariants.all { variant ->
+    variant.outputs.all { output ->
+        def builtType = variant.buildType.name
+        def flavor = variant.flavorName
+        outputFileName = "kreki-${flavor}-${builtType}-${flutterVersionName}.apk"
+    }
 }
