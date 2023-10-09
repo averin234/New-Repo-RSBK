@@ -360,7 +360,7 @@ class SettingProfileView extends GetView<SettingProfileController> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Center(
-                      child: Text('Aplikasi Versi 11'),
+                      child: Text('Aplikasi Versi ' + controller.packageName),
                     ),
                     SizedBox(
                       height: 20,

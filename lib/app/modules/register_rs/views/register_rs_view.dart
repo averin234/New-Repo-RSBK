@@ -29,6 +29,9 @@ class RegisterRsView extends StatefulWidget {
 
 class _RegisterRsViewState extends State<RegisterRsView> {
   // this enable our app to able to pull down
+  final updateController = Get.put(RegisterRsController());
+  late final String currentVersion;
+
   late RefreshController _refreshController; // the refresh controller
   var _scaffoldKey =
       GlobalKey<ScaffoldState>(); // this is our key to the scaffold widget
@@ -43,6 +46,7 @@ class _RegisterRsViewState extends State<RegisterRsView> {
 
   @override
   Widget build(BuildContext context) {
+    updateController.checkForUpdate();
     return WillPopScope(
       onWillPop: () async {
         Navigator.of(context).pushReplacement(

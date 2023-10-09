@@ -26,6 +26,8 @@ class HomeView1 extends StatefulWidget {
 
 class _HomeView1State extends State<HomeView1> {
   final controller = Get.put(HomeController());
+  final updateController = Get.put(HomeController());
+  late final String currentVersion;
   final RefreshController _refreshController = RefreshController();
 
   Future<void> _onRefresh() async {
@@ -37,6 +39,8 @@ class _HomeView1State extends State<HomeView1> {
   }
 
   List<int> entries = List<int>.generate(5, (int i) => i);
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,122 +81,126 @@ class _HomeView1State extends State<HomeView1> {
           automaticallyImplyLeading: false,
           elevation: 1,
           shadowColor: Colors.blue),
-      body: SmartRefresher(
-        controller: _refreshController,
-        onRefresh: _onRefresh,
-        // ListView, CustomScrollView, etc. here
-        child: ListView(
-          children: [
-            FutureBuilder(
-              future: API.getDetailKlinik(),
-              builder: (context, snapshot) {
-                if (snapshot.hasData &&
-                    snapshot.connectionState != ConnectionState.waiting &&
-                    snapshot.data != null) {
-                  final data = snapshot.data!;
-                  return WidgetInfo(
-                    detailklinik: data,
-                  );
-                } else {
-                  return const shimmernohome();
-                }
-              },
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: 20),
-              child: Text("Antrean anda saat ini",
-                  style: GoogleFonts.nunito(
-                      fontSize: 20, fontWeight: FontWeight.bold)),
-            ),
-            FutureBuilder(
-              future: API.getJadwalPx(
-                noKtp: controller.dataRegist.value.noKtp ?? '',
-                tgl: DateFormat('yyyy-MM-dd').format(DateTime.now()),
-              ),
-              builder: (context, snapshot) {
-                if (snapshot.hasData &&
-                    snapshot.connectionState != ConnectionState.waiting &&
-                    snapshot.data != null) {
-                  if (snapshot.data!.code == 200) {
-                    final data = snapshot.data!.list!.first;
-                    return FutureBuilder(
-                        future: API.getDataPx(
-                            noKtp: controller.dataRegist.value.noKtp ?? ''),
-                        builder: (context, snapshot1) {
-                          if (snapshot1.hasData &&
-                              snapshot1.connectionState !=
-                                  ConnectionState.waiting &&
-                              snapshot1.data != null) {
-                            final scan = snapshot1.data!;
-                            return Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                Padding(
-                                    padding: EdgeInsets.only(
-                                        left: 20, top: 0, bottom: 15)),
-                                WidgetCard(lists: {'data': data, 'scan': scan}),
-                              ],
-                            );
-                          } else {
-                            return Container(
-                                margin: EdgeInsets.only(right: 20, top: 10),
-                                child: shimmerAntriHome());
-                          }
-                        });
-                  } else {
-                    return const WidgetNoAntri();
-                  }
-                } else {
-                  return Container(
-                      margin: EdgeInsets.only(right: 20, top: 10),
-                      child: shimmerAntriHome());
-                }
-              },
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 15, right: 20, left: 20),
-              child: Text(
-                "Layanan Utama",
+      body: AidBookView1()
+    );
+  }
+  Widget AidBookView1() {
+    updateController.checkForUpdate();
+    return SmartRefresher(
+      controller: _refreshController,
+      onRefresh: _onRefresh,
+      // ListView, CustomScrollView, etc. here
+      child: ListView(
+        children: [
+          FutureBuilder(
+            future: API.getDetailKlinik(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData &&
+                  snapshot.connectionState != ConnectionState.waiting &&
+                  snapshot.data != null) {
+                final data = snapshot.data!;
+                return WidgetInfo(
+                  detailklinik: data,
+                );
+              } else {
+                return const shimmernohome();
+              }
+            },
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 20),
+            child: Text("Antrean anda saat ini",
                 style: GoogleFonts.nunito(
-                    fontSize: 20, fontWeight: FontWeight.bold),
-              ),
+                    fontSize: 20, fontWeight: FontWeight.bold)),
+          ),
+          FutureBuilder(
+            future: API.getJadwalPx(
+              noKtp: controller.dataRegist.value.noKtp ?? '',
+              tgl: DateFormat('yyyy-MM-dd').format(DateTime.now()),
             ),
-            const WidgetStraggeredGridView(),
-            const WidgetTitle2(),
-            Container(
-              decoration: BoxDecoration(
-                image: const DecorationImage(
-                  image: AssetImage("assets/images/frame1.png"),
-                  fit: BoxFit.cover,
+            builder: (context, snapshot) {
+              if (snapshot.hasData &&
+                  snapshot.connectionState != ConnectionState.waiting &&
+                  snapshot.data != null) {
+                if (snapshot.data!.code == 200) {
+                  final data = snapshot.data!.list!.first;
+                  return FutureBuilder(
+                      future: API.getDataPx(
+                          noKtp: controller.dataRegist.value.noKtp ?? ''),
+                      builder: (context, snapshot1) {
+                        if (snapshot1.hasData &&
+                            snapshot1.connectionState !=
+                                ConnectionState.waiting &&
+                            snapshot1.data != null) {
+                          final scan = snapshot1.data!;
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Padding(
+                                  padding: EdgeInsets.only(
+                                      left: 20, top: 0, bottom: 15)),
+                              WidgetCard(lists: {'data': data, 'scan': scan}),
+                            ],
+                          );
+                        } else {
+                          return Container(
+                              margin: EdgeInsets.only(right: 20, top: 10),
+                              child: shimmerAntriHome());
+                        }
+                      });
+                } else {
+                  return const WidgetNoAntri();
+                }
+              } else {
+                return Container(
+                    margin: EdgeInsets.only(right: 20, top: 10),
+                    child: shimmerAntriHome());
+              }
+            },
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 15, right: 20, left: 20),
+            child: Text(
+              "Layanan Utama",
+              style: GoogleFonts.nunito(
+                  fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+          ),
+          const WidgetStraggeredGridView(),
+          const WidgetTitle2(),
+          Container(
+            decoration: BoxDecoration(
+              image: const DecorationImage(
+                image: AssetImage("assets/images/frame1.png"),
+                fit: BoxFit.cover,
+              ),
+              borderRadius: BorderRadius.circular(15),
+              boxShadow: [
+                BoxShadow(
+                  color: const Color(0xFFe0e0e0).withOpacity(0.5),
+                  spreadRadius: 0,
+                  blurRadius: 10,
+                  offset: const Offset(2, 1),
                 ),
-                borderRadius: BorderRadius.circular(15),
-                boxShadow: [
-                  BoxShadow(
-                    color: const Color(0xFFe0e0e0).withOpacity(0.5),
-                    spreadRadius: 0,
-                    blurRadius: 10,
-                    offset: const Offset(2, 1),
-                  ),
-                ],
-              ),
-              padding: const EdgeInsets.all(0),
-              child: Column(
-                children: const [
-                  SizedBox(
-                    height: 10,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  VerticalSliderDemo(),
-                ],
-              ),
-            )
-          ],
-        ),
+              ],
+            ),
+            padding: const EdgeInsets.all(0),
+            child: Column(
+              children: const [
+                SizedBox(
+                  height: 10,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                VerticalSliderDemo(),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }

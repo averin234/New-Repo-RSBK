@@ -1,5 +1,5 @@
 name: rsbkcare
-version: 1.0.0+1
+version: 1.1.1+1
 publish_to: none
 description: A new Flutter project.
 environment:
@@ -16,6 +16,9 @@ dependencies:
   launch_review: ^3.0.1
   smartrefresh: ^0.0.2
   dropdown_button2: ^2.1.2
+  package_info: ^2.0.2
+  in_app_update: ^4.2.1
+  device_info_plus: ^8.0.0
 #  flutter_advanced_calendar: ^1.3.0
   # qr_code_scanner: ^1.0.1
   mobile_scanner: ^3.2.0
