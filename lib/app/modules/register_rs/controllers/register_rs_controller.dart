@@ -13,7 +13,14 @@ class RegisterRsController extends GetxController {
   get updateAvailable => null;
 
   Future<void> checkForUpdate() async {
-    final packageInfo = await PackageInfo.fromPlatform();
+    final packageInfo = (GetPlatform.isAndroid)
+        ? await PackageInfo.fromPlatform()
+        : PackageInfo(
+            appName: '',
+            packageName: '',
+            version: '',
+            buildNumber: '',
+          );
     final currentVersion = packageInfo.version;
 
     try {
@@ -40,12 +47,13 @@ class RegisterRsController extends GetxController {
             fit: BoxFit.fitHeight,
             height: 200,
           ),
-          Text('Versi baru aplikasi tersedia. Apakah Anda ingin mengunduh pembaruan sekarang?', textAlign: TextAlign.center),
+          Text(
+              'Versi baru aplikasi tersedia. Apakah Anda ingin mengunduh pembaruan sekarang?',
+              textAlign: TextAlign.center),
         ],
       ),
-
       confirm: InkWell(
-        onTap: () async{
+        onTap: () async {
           await InAppUpdate.performImmediateUpdate();
           Get.back();
         },
@@ -53,15 +61,14 @@ class RegisterRsController extends GetxController {
           width: double.infinity,
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.blue
-          ),
-          child : Center(
-            child : Text('Unduh Sekarang', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+              borderRadius: BorderRadius.circular(10), color: Colors.blue),
+          child: Center(
+            child: Text('Unduh Sekarang',
+                style: TextStyle(
+                    color: Colors.white, fontWeight: FontWeight.bold)),
           ),
         ),
       ),
-
     );
   }
 

@@ -19,15 +19,21 @@ class SettingProfileController extends GetxController {
   late final DeviceInfoPlugin deviceInfo;
 
   @override
-  void onInit() async{
+  void onInit() async {
     super.onInit();
 
     deviceInfo = DeviceInfoPlugin();
-    AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
-
-    PackageInfo packageInfo = await PackageInfo.fromPlatform();
+    final androidInfo = (GetPlatform.isAndroid)
+        ? await deviceInfo.androidInfo
+        : AndroidDeviceInfo;
+    final packageInfo = (GetPlatform.isAndroid)
+        ? await PackageInfo.fromPlatform()
+        : PackageInfo(
+            appName: '',
+            packageName: '',
+            version: '',
+            buildNumber: '',
+          );
     _packageName.value = packageInfo.version;
-
   }
-
 }
