@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rskgcare/app/widgets/card/card_edit.dart';
+import 'package:rsbkcare/app/widgets/card/card_edit.dart';
 import 'package:text_scroll/text_scroll.dart';
 import '../../../widgets/card/card_penting.dart';
 import '../../../widgets/color/custom_color.dart';

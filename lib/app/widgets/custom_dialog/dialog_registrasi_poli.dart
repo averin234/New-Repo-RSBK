@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:rskgcare/app/widgets/endpoint/fetch_data.dart';
-import 'package:rskgcare/app/data/model/regist_rs/daftar_px.dart';
-import 'package:rskgcare/app/modules/detail-poli/controllers/detail_poli_controller.dart';
+import 'package:rsbkcare/app/widgets/endpoint/fetch_data.dart';
+import 'package:rsbkcare/app/data/model/regist_rs/daftar_px.dart';
+import 'package:rsbkcare/app/modules/detail-poli/controllers/detail_poli_controller.dart';
 
 import '../../widgets/color/custom_color.dart';
 import 'dialog_registrasi_gagal_regis.dart';

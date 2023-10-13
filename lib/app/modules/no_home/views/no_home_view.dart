@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rskgcare/app/widgets/endpoint/fetch_data.dart';
-import 'package:rskgcare/app/routes/app_pages.dart';
+import 'package:rsbkcare/app/widgets/endpoint/fetch_data.dart';
+import 'package:rsbkcare/app/routes/app_pages.dart';
 import '../../../widgets/card/card_info_rs.dart';
 import '../../../widgets/color/custom_color.dart';
 import '../../../widgets/card/card_no_antri.dart';

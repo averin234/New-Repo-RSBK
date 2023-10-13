@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rskgcare/app/widgets/card/card_ticket_antrian.dart';
+import 'package:rsbkcare/app/widgets/card/card_ticket_antrian.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import '../../../widgets/color/custom_color.dart';
 import '../../../widgets/font_size/my_font_size.dart';

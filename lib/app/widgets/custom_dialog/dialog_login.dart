@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:rskgcare/app/routes/app_pages.dart';
+import 'package:rsbkcare/app/routes/app_pages.dart';
 
 import '../../widgets/color/custom_color.dart';
 

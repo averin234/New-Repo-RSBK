@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
-import 'package:rskgcare/app/widgets/endpoint/fetch_data.dart';
-import 'package:rskgcare/app/modules/scanner_antrian/controllers/scanner_antrian_controller.dart';
-import 'package:rskgcare/app/routes/app_pages.dart';
+import 'package:rsbkcare/app/widgets/endpoint/fetch_data.dart';
+import 'package:rsbkcare/app/modules/scanner_antrian/controllers/scanner_antrian_controller.dart';
+import 'package:rsbkcare/app/routes/app_pages.dart';
 
 import '../../../widgets/color/custom_color.dart';
 import '../../home/views/home_view.dart';

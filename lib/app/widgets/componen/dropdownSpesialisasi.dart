@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rskgcare/app/widgets/endpoint/fetch_data.dart';
-import 'package:rskgcare/app/data/model/homepage/poli.dart';
-import 'package:rskgcare/app/modules/register_rs/controllers/register_rs_controller.dart';
+import 'package:rsbkcare/app/widgets/endpoint/fetch_data.dart';
+import 'package:rsbkcare/app/data/model/homepage/poli.dart';
+import 'package:rsbkcare/app/modules/register_rs/controllers/register_rs_controller.dart';
 
 import '../color/custom_color.dart';
 

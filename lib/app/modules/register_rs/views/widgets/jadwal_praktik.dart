@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:rskgcare/app/data/model/regist_rs/all_dokter_klinik.dart';
+import 'package:rsbkcare/app/data/model/regist_rs/all_dokter_klinik.dart';
 import 'package:intl/intl.dart' as intl;
-import 'package:rskgcare/app/routes/app_pages.dart';
+import 'package:rsbkcare/app/routes/app_pages.dart';
 
 import '../../../../widgets/color/custom_color.dart';
 import '../../controllers/register_rs_controller.dart';

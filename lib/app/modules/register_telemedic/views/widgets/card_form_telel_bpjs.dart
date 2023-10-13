@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:rskgcare/app/modules/register_telemedic/controllers/register_telemedic_controller.dart';
+import 'package:rsbkcare/app/modules/register_telemedic/controllers/register_telemedic_controller.dart';
 
 import '../../../../widgets/color/custom_color.dart';
 

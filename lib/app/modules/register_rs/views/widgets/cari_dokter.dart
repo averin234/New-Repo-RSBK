@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rskgcare/app/widgets/endpoint/fetch_data.dart';
-import 'package:rskgcare/app/data/model/homepage/poli.dart';
-import 'package:rskgcare/app/modules/register_rs/controllers/register_rs_controller.dart';
-import 'package:rskgcare/app/widgets/card/card_listview_poli.dart';
+import 'package:rsbkcare/app/widgets/endpoint/fetch_data.dart';
+import 'package:rsbkcare/app/data/model/homepage/poli.dart';
+import 'package:rsbkcare/app/modules/register_rs/controllers/register_rs_controller.dart';
+import 'package:rsbkcare/app/widgets/card/card_listview_poli.dart';
 import 'package:search_page/search_page.dart';
 
 import '../../../../data/model/regist_rs/all_dokter_klinik.dart';

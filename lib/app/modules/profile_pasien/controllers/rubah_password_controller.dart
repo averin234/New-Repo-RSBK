@@ -1,4 +1,4 @@
-import 'package:rskgcare/app/data/componen/publics.dart';
+import 'package:rsbkcare/app/data/componen/publics.dart';
 import 'package:get/get.dart';
 
 class RubahPasswordController extends GetxController {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:rskgcare/app/data/model/regist_rs/daftar_px.dart';
+import 'package:rsbkcare/app/data/model/regist_rs/daftar_px.dart';
 
 import '../../widgets/color/custom_color.dart';
 

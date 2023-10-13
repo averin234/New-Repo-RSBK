@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rskgcare/app/data/componen/data_regist_model.dart';
-import 'package:rskgcare/app/widgets/endpoint/fetch_data.dart';
-import 'package:rskgcare/app/data/componen/images.dart';
-import 'package:rskgcare/app/data/componen/local_storage.dart';
-import 'package:rskgcare/app/data/componen/publics.dart';
+import 'package:rsbkcare/app/data/componen/data_regist_model.dart';
+import 'package:rsbkcare/app/widgets/endpoint/fetch_data.dart';
+import 'package:rsbkcare/app/data/componen/images.dart';
+import 'package:rsbkcare/app/data/componen/local_storage.dart';
+import 'package:rsbkcare/app/data/componen/publics.dart';
 import '../../../routes/app_pages.dart';
 import '../../../widgets/color/custom_color.dart';
 import '../../../widgets/font_size/my_font_size.dart';

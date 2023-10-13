@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 import 'package:get/get.dart';
-import 'package:rskgcare/app/data/componen/images.dart';
-import 'package:rskgcare/app/widgets/card/card_form_poli.dart';
-import 'package:rskgcare/app/widgets/card/card_jadwa_poli_view.dart';
+import 'package:rsbkcare/app/data/componen/images.dart';
+import 'package:rsbkcare/app/widgets/card/card_form_poli.dart';
+import 'package:rsbkcare/app/widgets/card/card_jadwa_poli_view.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../../../widgets/endpoint/fetch_data.dart';

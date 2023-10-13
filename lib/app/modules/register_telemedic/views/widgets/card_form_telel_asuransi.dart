@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rskgcare/app/widgets/endpoint/fetch_data.dart';
-import 'package:rskgcare/app/widgets/componen/mydropdown.dart';
-import 'package:rskgcare/app/modules/register_telemedic/controllers/register_telemedic_controller.dart';
+import 'package:rsbkcare/app/widgets/endpoint/fetch_data.dart';
+import 'package:rsbkcare/app/widgets/componen/mydropdown.dart';
+import 'package:rsbkcare/app/modules/register_telemedic/controllers/register_telemedic_controller.dart';
 
 import '../../../../data/model/dropdown_model.dart';
 import '../../../../widgets/color/custom_color.dart';

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rskgcare/app/widgets/endpoint/fetch_data.dart';
-import 'package:rskgcare/app/modules/register_telemedic/views/widgets/card_form_tele.dart';
-import 'package:rskgcare/app/modules/register_telemedic/views/widgets/widget_slider_hemo.dart';
+import 'package:rsbkcare/app/widgets/endpoint/fetch_data.dart';
+import 'package:rsbkcare/app/modules/register_telemedic/views/widgets/card_form_tele.dart';
+import 'package:rsbkcare/app/modules/register_telemedic/views/widgets/widget_slider_hemo.dart';
 import '../../../widgets/color/custom_color.dart';
 import '../../../widgets/font_size/my_font_size.dart';
 import '../controllers/register_telemedic_controller.dart';

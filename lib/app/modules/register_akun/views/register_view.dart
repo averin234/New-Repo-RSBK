@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rskgcare/app/widgets/endpoint/fetch_data.dart';
-import 'package:rskgcare/app/widgets/componen/password.dart';
-import 'package:rskgcare/app/widgets/componen/register.dart';
-import 'package:rskgcare/app/routes/app_pages.dart';
+import 'package:rsbkcare/app/widgets/endpoint/fetch_data.dart';
+import 'package:rsbkcare/app/widgets/componen/password.dart';
+import 'package:rsbkcare/app/widgets/componen/register.dart';
+import 'package:rsbkcare/app/routes/app_pages.dart';
 
 import '../../../widgets/color/custom_color.dart';
 import '../../../widgets/text/string_text.dart';

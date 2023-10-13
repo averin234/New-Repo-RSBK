@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:rskgcare/app/data/componen/images.dart';
-import 'package:rskgcare/app/routes/app_pages.dart';
+import 'package:rsbkcare/app/data/componen/images.dart';
+import 'package:rsbkcare/app/routes/app_pages.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';

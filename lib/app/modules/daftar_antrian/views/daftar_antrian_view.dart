@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:rskgcare/app/widgets/endpoint/fetch_data.dart';
-import 'package:rskgcare/app/modules/daftar_antrian/controllers/daftar_antrian_controller.dart';
-import 'package:rskgcare/app/widgets/card/card_listview_antrian.dart';
-import 'package:rskgcare/app/widgets/card/card_select_calender.dart';
+import 'package:rsbkcare/app/widgets/endpoint/fetch_data.dart';
+import 'package:rsbkcare/app/modules/daftar_antrian/controllers/daftar_antrian_controller.dart';
+import 'package:rsbkcare/app/widgets/card/card_listview_antrian.dart';
+import 'package:rsbkcare/app/widgets/card/card_select_calender.dart';
 import '../../../routes/app_pages.dart';
 import '../../../widgets/card/card_no_antri.dart';
 import '../../../widgets/color/custom_color.dart';

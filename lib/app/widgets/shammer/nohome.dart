@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:rskgcare/app/widgets/shammer/shimmer_antri.dart';
-import 'package:rskgcare/app/widgets/shammer/shimmer_menu.dart';
-import 'package:rskgcare/app/widgets/shammer/shimmer_nama_rs.dart';
-import 'package:rskgcare/app/widgets/shammer/shimmer_slider.dart';
+import 'package:rsbkcare/app/widgets/shammer/shimmer_antri.dart';
+import 'package:rsbkcare/app/widgets/shammer/shimmer_menu.dart';
+import 'package:rsbkcare/app/widgets/shammer/shimmer_nama_rs.dart';
+import 'package:rsbkcare/app/widgets/shammer/shimmer_slider.dart';
 
 import '../font_size/my_style.dart';
 

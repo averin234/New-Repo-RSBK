@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rskgcare/app/data/model/mr_pasien/listMRPX.dart';
+import 'package:rsbkcare/app/data/model/mr_pasien/listMRPX.dart';
 import '../../routes/app_pages.dart';
 import '../color/custom_color.dart';
 

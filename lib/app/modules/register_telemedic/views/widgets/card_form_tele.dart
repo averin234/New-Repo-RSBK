@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:rskgcare/app/modules/register_telemedic/controllers/register_telemedic_controller.dart';
-import 'package:rskgcare/app/modules/register_telemedic/views/widgets/card_form_telel_asuransi.dart';
-import 'package:rskgcare/app/modules/register_telemedic/views/widgets/card_form_telel_bpjs.dart';
+import 'package:rsbkcare/app/modules/register_telemedic/controllers/register_telemedic_controller.dart';
+import 'package:rsbkcare/app/modules/register_telemedic/views/widgets/card_form_telel_asuransi.dart';
+import 'package:rsbkcare/app/modules/register_telemedic/views/widgets/card_form_telel_bpjs.dart';
 
 import '../../../../widgets/color/custom_color.dart';
 import 'card_form_info_tele.dart';
