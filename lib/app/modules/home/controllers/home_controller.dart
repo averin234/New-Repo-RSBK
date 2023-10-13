@@ -3,6 +3,9 @@ import 'package:get/get.dart';
 import 'package:in_app_update/in_app_update.dart';
 import 'package:package_info/package_info.dart';
 
+import '../../../data/componen/publics.dart';
+import '../../../widgets/color/custom_color.dart';
+
 class HomeController extends GetxController {
   //TODO: Implement HomeController
   final dataRegist = Publics.controller.getDataRegist;

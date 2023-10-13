@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:in_app_update/in_app_update.dart';
 import 'package:package_info/package_info.dart';
 
+import '../../../widgets/color/custom_color.dart';
+
 class RegisterRsController extends GetxController {
   //TODO: Implement RegisterRsController
   final namaBagian = ''.obs;
