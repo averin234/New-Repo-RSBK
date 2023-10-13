@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rsbkcare/app/data/componen/fetch_data.dart';
-import 'package:rsbkcare/app/modules/edit-profile/views/widgets/mydropdown.dart';
-import 'package:rsbkcare/app/modules/register_telemedic/controllers/register_telemedic_controller.dart';
+import 'package:rskgcare/app/widgets/endpoint/fetch_data.dart';
+import 'package:rskgcare/app/widgets/componen/mydropdown.dart';
+import 'package:rskgcare/app/modules/register_telemedic/controllers/register_telemedic_controller.dart';
 
 import '../../../../data/model/dropdown_model.dart';
+import '../../../../widgets/color/custom_color.dart';
 
 class CardFromAsuransi extends StatelessWidget {
   const CardFromAsuransi({super.key});
@@ -94,10 +95,10 @@ class CardFromAsuransi extends StatelessWidget {
   }
 
   Widget _myDropDown(
-      String title, {
-        required TextEditingController controller,
-        required List<Dropdowns> items,
-      }) {
+    String title, {
+    required TextEditingController controller,
+    required List<Dropdowns> items,
+  }) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       decoration: BoxDecoration(),
@@ -107,7 +108,7 @@ class CardFromAsuransi extends StatelessWidget {
           Text(
             title,
             style:
-            GoogleFonts.nunito(fontSize: 13, fontWeight: FontWeight.bold),
+                GoogleFonts.nunito(fontSize: 13, fontWeight: FontWeight.bold),
           ),
           const SizedBox(
             height: 10,
@@ -123,11 +124,11 @@ class CardFromAsuransi extends StatelessWidget {
       width: Get.width,
       padding: const EdgeInsets.symmetric(vertical: 15),
       alignment: Alignment.center,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10)),
           boxShadow: <BoxShadow>[
             BoxShadow(
-                color: Colors.white12,
+                color: CustomColors.warnaputih,
                 offset: Offset(2, 1),
                 blurRadius: 1,
                 spreadRadius: 2)
@@ -138,7 +139,7 @@ class CardFromAsuransi extends StatelessWidget {
               colors: [Colors.green, Colors.green])),
       child: const Text(
         'Kirim',
-        style: TextStyle(fontSize: 20, color: Colors.white),
+        style: TextStyle(fontSize: 20, color: CustomColors.warnaputih),
       ),
     );
   }
@@ -157,8 +158,8 @@ class CardFromAsuransi extends StatelessWidget {
                   padding: EdgeInsets.only(top: 5, bottom: 5),
                   child: Text("Asuransi/Perusahaan",
                       style: TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.bold,
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold,
                       )),
                 ),
               ),
@@ -176,8 +177,8 @@ class CardFromAsuransi extends StatelessWidget {
                         "Asuransi/Perusahaan",
                         items: asuransiPx
                             .map((e) => Dropdowns(
-                            kategori: e.namaPerusahaan ?? '',
-                            initialValue: e.kodePerusahaan ?? ''))
+                                kategori: e.namaPerusahaan ?? '',
+                                initialValue: e.kodePerusahaan ?? ''))
                             .toList(),
                         controller: controller.asuransiController,
                       );
@@ -220,7 +221,7 @@ class _CustomRadioState extends State<CustomRadio> {
       style: OutlinedButton.styleFrom(
         padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
         shape:
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         side: BorderSide(
             width: (selectedPayment == index) ? 2.0 : 0.5,
             color: (selectedPayment == index)
@@ -231,9 +232,9 @@ class _CustomRadioState extends State<CustomRadio> {
         children: [
           const Center(
               child: Text(
-                "Rujukan",
-                style: TextStyle(color: Color(0xff308366)),
-              )),
+            "Rujukan",
+            style: TextStyle(color: Color(0xff308366)),
+          )),
           if (selectedPayment == index)
             const Positioned(top: 5, right: 5, child: Text("")),
         ],
@@ -251,7 +252,7 @@ class _CustomRadioState extends State<CustomRadio> {
       style: OutlinedButton.styleFrom(
         padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
         shape:
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         side: BorderSide(
             width: (selectedPayment == index) ? 2.0 : 0.5,
             color: (selectedPayment == index)
@@ -262,9 +263,9 @@ class _CustomRadioState extends State<CustomRadio> {
         children: [
           const Center(
               child: Text(
-                "Kontrol",
-                style: TextStyle(color: Color(0xff308366)),
-              )),
+            "Kontrol",
+            style: TextStyle(color: Color(0xff308366)),
+          )),
           if (selectedPayment == index)
             const Positioned(top: 5, right: 5, child: Text("")),
         ],

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:rsbkcare/app/modules/register_telemedic/controllers/register_telemedic_controller.dart';
+import 'package:rskgcare/app/modules/register_telemedic/controllers/register_telemedic_controller.dart';
+
+import '../../../../widgets/color/custom_color.dart';
 
 class CardFromPBJS extends StatelessWidget {
   const CardFromPBJS({super.key});
@@ -55,7 +57,7 @@ class CardFromPBJS extends StatelessWidget {
     );
   }
 
-  Widget _entryFieldNIK( String title,
+  Widget _entryFieldNIK(String title,
       {bool isPassword = false, required TextEditingController controller}) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -80,8 +82,10 @@ class CardFromPBJS extends StatelessWidget {
             decoration: InputDecoration(
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  width: 1, color: Color(0xffeaeaea),),
-                borderRadius: BorderRadius.circular(10.0),//<-- SEE HERE
+                  width: 1,
+                  color: Color(0xffeaeaea),
+                ),
+                borderRadius: BorderRadius.circular(10.0), //<-- SEE HERE
               ),
               border: InputBorder.none,
               fillColor: Color(0xffffffff),
@@ -125,11 +129,11 @@ class CardFromPBJS extends StatelessWidget {
       width: Get.width,
       padding: const EdgeInsets.symmetric(vertical: 15),
       alignment: Alignment.center,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10)),
           boxShadow: <BoxShadow>[
             BoxShadow(
-                color: Colors.white12,
+                color: CustomColors.warnaputih,
                 offset: Offset(2, 1),
                 blurRadius: 1,
                 spreadRadius: 2)
@@ -140,7 +144,7 @@ class CardFromPBJS extends StatelessWidget {
               colors: [Colors.green, Colors.green])),
       child: const Text(
         'Kirim',
-        style: TextStyle(fontSize: 20, color: Colors.white),
+        style: TextStyle(fontSize: 20, color: CustomColors.warnaputih),
       ),
     );
   }
@@ -181,7 +185,7 @@ class CardFromPBJS extends StatelessWidget {
             ),
             const CustomRadio(),
             Obx(
-                  () => _entryFieldNIK(
+              () => _entryFieldNIK(
                 controller.jnsKunjBPJSController.value == '1'
                     ? "No Rujukan :"
                     : "No Kontrol :",
@@ -228,16 +232,16 @@ class CustomRadio extends GetView<RegisterTelemedicController> {
                               ? 2.0
                               : 0.5,
                           color: (controller.jnsKunjBPJSController.value == '1')
-                              ?  Color(0xff4babe7)
-                              :  Color(0xff4babe7)),
+                              ? Color(0xff4babe7)
+                              : Color(0xff4babe7)),
                     ),
                     child: Stack(
                       children: [
                         const Center(
                             child: Text(
-                              "Rujukan",
-                              style: TextStyle(color: Color(0xff4babe7)),
-                            )),
+                          "Rujukan",
+                          style: TextStyle(color: Color(0xff4babe7)),
+                        )),
                         if (controller.jnsKunjBPJSController.value == '1')
                           const Positioned(top: 5, right: 5, child: Text("")),
                       ],
@@ -271,9 +275,9 @@ class CustomRadio extends GetView<RegisterTelemedicController> {
                       children: [
                         const Center(
                             child: Text(
-                              "Kontrol",
-                              style: TextStyle(color: Color(0xff4babe7)),
-                            )),
+                          "Kontrol",
+                          style: TextStyle(color: Color(0xff4babe7)),
+                        )),
                         if (controller.jnsKunjBPJSController.value == '2')
                           const Positioned(top: 5, right: 5, child: Text("")),
                       ],

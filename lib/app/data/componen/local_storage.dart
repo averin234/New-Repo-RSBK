@@ -1,7 +1,7 @@
 import 'package:get_storage/get_storage.dart';
-import 'package:rsbkcare/app/data/componen/data_regist_model.dart';
-import 'package:rsbkcare/app/data/componen/publics.dart';
-import 'package:rsbkcare/app/data/model/login_and_regist/token.dart';
+import 'package:rskgcare/app/data/componen/data_regist_model.dart';
+import 'package:rskgcare/app/data/componen/publics.dart';
+import 'package:rskgcare/app/data/model/login_and_regist/token.dart';
 
 class LocalStorages {
   static GetStorage boxToken = GetStorage('token_rsbk');

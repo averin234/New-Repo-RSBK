@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:rsbkcare/app/modules/shammer/shimmer_antrihome.dart';
-import 'package:rsbkcare/app/modules/shammer/shimmer_nama_rs.dart';
+import 'package:rskgcare/app/widgets/card/card_antri.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:rsbkcare/app/data/componen/fetch_data.dart';
-import 'package:rsbkcare/app/data/componen/images.dart';
-import 'package:rsbkcare/app/modules/home/views/widgets/widget_cardantri.dart';
-import 'package:rsbkcare/app/modules/home/views/widgets/widget_cardinfopluit.dart';
-import 'package:rsbkcare/app/modules/home/views/widgets/widget_no_antri.dart';
-import 'package:rsbkcare/app/modules/home/views/widgets/widget_slider_poli.dart';
-import 'package:rsbkcare/app/modules/home/views/widgets/widget_straggered_grid_view.dart';
-import 'package:rsbkcare/app/modules/home/views/widgets/widget_title2.dart';
-import 'package:rsbkcare/app/routes/app_pages.dart';
+import 'package:rskgcare/app/widgets/endpoint/fetch_data.dart';
+import 'package:rskgcare/app/data/componen/images.dart';
+import 'package:rskgcare/app/widgets/card/grid_view_home.dart';
+import 'package:rskgcare/app/routes/app_pages.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
+import '../../../widgets/card/card_info_rs.dart';
+import '../../../widgets/card/card_no_antri.dart';
+import '../../../widgets/card/card_slider_poli_home.dart';
+import '../../../widgets/card/card_slider_poli_no_home.dart';
+import '../../../widgets/card/card_text_raw.dart';
+import '../../../widgets/color/custom_color.dart';
+import '../../../widgets/shammer/shimmer_antrihome.dart';
+import '../../../widgets/shammer/shimmer_nama_rs.dart';
+import '../../../widgets/text/string_text.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView1 extends StatefulWidget {
@@ -40,51 +43,50 @@ class _HomeView1State extends State<HomeView1> {
 
   List<int> entries = List<int>.generate(5, (int i) => i);
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).brightness == Brightness.light
-          ? Color(0xfff6f9fe)
-          : Color(0xff2C3333),
-      appBar: AppBar(
-          toolbarHeight: 70,
-          backgroundColor: Theme.of(context).brightness == Brightness.light
-              ? Color(0xfff6f9fe)
-              : Color(0xff2C3333),
-          title: ListTile(
-            leading: GestureDetector(
-              onTap: () => Get.toNamed(Routes.SETTING_PROFILE),
-              child: CircleAvatar(
-                backgroundImage: NetworkImage(
-                  controller.dataRegist.value.fotoPasien != 'null'
-                      ? controller.dataRegist.value.fotoPasien!
-                      : controller.dataRegist.value.jenisKelamin == 'L'
-                          ? Avatar.lakiLaki
-                          : Avatar.perempuan,
+        backgroundColor: Theme.of(context).brightness == Brightness.light
+            ? CustomColors.background
+            : CustomColors.darkmode1,
+        appBar: AppBar(
+            toolbarHeight: 70,
+            backgroundColor: Theme.of(context).brightness == Brightness.light
+                ? CustomColors.background
+                : CustomColors.darkmode1,
+            title: ListTile(
+              leading: GestureDetector(
+                onTap: () => Get.toNamed(Routes.SETTING_PROFILE),
+                child: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                    controller.dataRegist.value.fotoPasien != 'null'
+                        ? controller.dataRegist.value.fotoPasien!
+                        : controller.dataRegist.value.jenisKelamin == 'L'
+                            ? Avatar.lakiLaki
+                            : Avatar.perempuan,
+                  ),
                 ),
               ),
-            ),
-            title: Text(
-              '👋 Hi, ${controller.dataRegist.value.namaPasien ?? ''}',
-              style: GoogleFonts.nunito(
-                fontWeight: FontWeight.bold,
-                fontSize: 13,
+              title: Text(
+                '👋 Hi, ${controller.dataRegist.value.namaPasien ?? ''}',
+                style: GoogleFonts.nunito(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 13,
+                ),
+              ),
+              subtitle: Text(
+                controller.dataRegist.value.noKtp ?? '',
+                style: GoogleFonts.nunito(
+                    fontWeight: FontWeight.bold, fontSize: 13),
               ),
             ),
-            subtitle: Text(
-              controller.dataRegist.value.noKtp ?? '',
-              style:
-                  GoogleFonts.nunito(fontWeight: FontWeight.bold, fontSize: 13),
-            ),
-          ),
-          automaticallyImplyLeading: false,
-          elevation: 1,
-          shadowColor: Colors.blue),
-      body: AidBookView1()
-    );
+            automaticallyImplyLeading: false,
+            elevation: 1,
+            shadowColor: CustomColors.warnabiru),
+        body: HomeView());
   }
-  Widget AidBookView1() {
+
+  Widget HomeView() {
     updateController.checkForUpdate();
     return SmartRefresher(
       controller: _refreshController,
@@ -112,7 +114,7 @@ class _HomeView1State extends State<HomeView1> {
           ),
           Padding(
             padding: EdgeInsets.only(left: 20),
-            child: Text("Antrean anda saat ini",
+            child: Text("${CustomStringText().Antreanaatini}",
                 style: GoogleFonts.nunito(
                     fontSize: 20, fontWeight: FontWeight.bold)),
           ),
@@ -164,9 +166,9 @@ class _HomeView1State extends State<HomeView1> {
           Padding(
             padding: const EdgeInsets.only(top: 15, right: 20, left: 20),
             child: Text(
-              "Layanan Utama",
-              style: GoogleFonts.nunito(
-                  fontSize: 20, fontWeight: FontWeight.bold),
+              "${CustomStringText().LayananUtama}",
+              style:
+                  GoogleFonts.nunito(fontSize: 20, fontWeight: FontWeight.bold),
             ),
           ),
           const WidgetStraggeredGridView(),
@@ -196,7 +198,7 @@ class _HomeView1State extends State<HomeView1> {
                 SizedBox(
                   height: 10,
                 ),
-                VerticalSliderDemo(),
+                VerticalSliderHome(),
               ],
             ),
           )

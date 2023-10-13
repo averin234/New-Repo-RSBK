@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:rsbkcare/app/modules/register_telemedic/controllers/register_telemedic_controller.dart';
-import 'package:rsbkcare/app/modules/register_telemedic/views/widgets/card_form_telel_asuransi.dart';
-import 'package:rsbkcare/app/modules/register_telemedic/views/widgets/card_form_telel_bpjs.dart';
+import 'package:rskgcare/app/modules/register_telemedic/controllers/register_telemedic_controller.dart';
+import 'package:rskgcare/app/modules/register_telemedic/views/widgets/card_form_telel_asuransi.dart';
+import 'package:rskgcare/app/modules/register_telemedic/views/widgets/card_form_telel_bpjs.dart';
 
+import '../../../../widgets/color/custom_color.dart';
 import 'card_form_info_tele.dart';
 import 'card_form_telel2.dart';
 import 'mydropdown.dart';
-
 
 class CardFromTele extends GetView<RegisterTelemedicController> {
   const CardFromTele({super.key});
@@ -140,11 +140,11 @@ class CardFromTele extends GetView<RegisterTelemedicController> {
       width: 240,
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
       alignment: Alignment.center,
-      decoration: const BoxDecoration(
+      decoration:  BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10)),
           boxShadow: <BoxShadow>[
             BoxShadow(
-                color: Colors.white12,
+                color: CustomColors.warnaputih,
                 offset: Offset(2, 1),
                 blurRadius: 1,
                 spreadRadius: 2)
@@ -156,7 +156,9 @@ class CardFromTele extends GetView<RegisterTelemedicController> {
       child: const Text(
         'Kirim',
         style: TextStyle(
-            fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
+            fontSize: 20,
+            color: CustomColors.warnaputih,
+            fontWeight: FontWeight.bold),
       ),
     );
   }
@@ -223,8 +225,8 @@ class CardFromTele extends GetView<RegisterTelemedicController> {
             Obx(() => controller.selectedValue.value == 'BPJS'
                 ? const CardFromPBJS()
                 : controller.selectedValue.value == 'Asuransi/Perusahaan'
-                ? const CardFromAsuransi()
-                : Container()),
+                    ? const CardFromAsuransi()
+                    : Container()),
           ],
         ));
   }
@@ -239,7 +241,7 @@ class CustomRadio extends GetView<RegisterTelemedicController> {
       style: OutlinedButton.styleFrom(
         padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
         shape:
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         side: BorderSide(
             width: (controller.selectedPayment.value == index) ? 2.0 : 0.5,
             color: (controller.selectedPayment.value == index)
@@ -250,9 +252,9 @@ class CustomRadio extends GetView<RegisterTelemedicController> {
         children: [
           const Center(
               child: Text(
-                "Pasien Baru",
-                style: TextStyle(color: Color(0xff4babe7)),
-              )),
+            "Pasien Baru",
+            style: TextStyle(color: Color(0xff4babe7)),
+          )),
           if (controller.selectedPayment.value == index)
             const Positioned(top: 5, right: 5, child: Text("")),
         ],
@@ -266,7 +268,7 @@ class CustomRadio extends GetView<RegisterTelemedicController> {
       style: OutlinedButton.styleFrom(
         padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
         shape:
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         side: BorderSide(
             width: (controller.selectedPayment.value == index) ? 2.0 : 0.5,
             color: (controller.selectedPayment.value == index)
@@ -277,9 +279,9 @@ class CustomRadio extends GetView<RegisterTelemedicController> {
         children: [
           const Center(
               child: Text(
-                "Pasien Lama",
-                style: TextStyle(color: Color(0xff4babe7)),
-              )),
+            "Pasien Lama",
+            style: TextStyle(color: Color(0xff4babe7)),
+          )),
           if (controller.selectedPayment.value == index)
             const Positioned(top: 5, right: 5, child: Text("")),
         ],
