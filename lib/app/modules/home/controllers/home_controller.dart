@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:in_app_update/in_app_update.dart';
 import 'package:package_info/package_info.dart';
-import 'package:rskgcare/app/data/componen/publics.dart';
-
-import '../../../widgets/color/custom_color.dart';
 
 class HomeController extends GetxController {
   //TODO: Implement HomeController
@@ -55,6 +52,7 @@ class HomeController extends GetxController {
               textAlign: TextAlign.center),
         ],
       ),
+
       confirm: InkWell(
         onTap: () async {
           await InAppUpdate.performImmediateUpdate();
@@ -74,6 +72,9 @@ class HomeController extends GetxController {
           ),
         ),
       ),
+
     );
   }
+
+
 }
