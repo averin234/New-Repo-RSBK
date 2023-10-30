@@ -154,7 +154,7 @@ class CardFromtele2 extends StatelessWidget {
       width: Get.width,
       padding: const EdgeInsets.symmetric(vertical: 15),
       alignment: Alignment.center,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10)),
           boxShadow: <BoxShadow>[
             BoxShadow(
@@ -186,12 +186,12 @@ class CardFromtele2 extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(left: 10),
             child: Text('Tentukan Jadwal,Jam dan Dokter Pemeriksa',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
           ),
-          Divider(
+          const Divider(
             color: Colors.grey,
           ),
           const SizedBox(
@@ -261,13 +261,13 @@ Widget _calender(String title, {required TextEditingController controller}) {
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               width: 1,
               color: Color(0xffeaeaea),
             ),
             borderRadius: BorderRadius.circular(10.0), //<-- SEE HERE
           ),
-          border: OutlineInputBorder(
+          border: const OutlineInputBorder(
             borderRadius: BorderRadius.all(
               Radius.circular(10.0),
             ),
@@ -277,8 +277,8 @@ Widget _calender(String title, {required TextEditingController controller}) {
             ),
           ),
           suffixIcon:
-              Icon(Icons.calendar_month_rounded, color: Color(0xff4babe7)),
-          fillColor: Color(0xffffffff),
+              const Icon(Icons.calendar_month_rounded, color: Color(0xff4babe7)),
+          fillColor: const Color(0xffffffff),
           filled: true,
         ),
         controller: controller,

@@ -168,7 +168,7 @@ class Item1 extends StatelessWidget {
                 children: [
                   Text(
                       "Anda Belum Terdaftar atau Login di Aplikasi SIRS ${CustomStringText().namaRS}",
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: CustomColors.warnahitam,
                           fontSize: 18,
                           fontWeight: FontWeight.bold),
@@ -207,7 +207,7 @@ class Item1 extends StatelessWidget {
                               borderRadius: BorderRadius.circular(7),
                               color: CustomColors.warnabiru,
                             ),
-                            child: Column(
+                            child: const Column(
                               children: [
                                 Padding(
                                   padding: EdgeInsets.all(16),
@@ -231,7 +231,7 @@ class Item1 extends StatelessWidget {
                               borderRadius: BorderRadius.circular(7),
                               color: Colors.greenAccent,
                             ),
-                            child: Column(
+                            child: const Column(
                               children: [
                                 Padding(
                                   padding: EdgeInsets.all(16),

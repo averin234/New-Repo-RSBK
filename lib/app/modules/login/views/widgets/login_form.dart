@@ -35,7 +35,7 @@ class LoginForm extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: kPaddingL),
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             FadeSlideTransition(
@@ -85,7 +85,7 @@ class LoginForm extends StatelessWidget {
                   builder: (context) => LupaPassword(context),
                 ),
                 title: Text(
-                  "${CustomStringText().LupaPassword}",
+                  CustomStringText().LupaPassword,
                   style: GoogleFonts.nunito(fontWeight: FontWeight.bold),
                 ),
               ),
@@ -105,7 +105,7 @@ class LoginForm extends StatelessWidget {
                     onChanged: (value) => controller.ingatSaya.value = value!,
                   ),
                   title: Text(
-                    "${CustomStringText().IngatSaya}",
+                    CustomStringText().IngatSaya,
                     style: GoogleFonts.nunito(fontWeight: FontWeight.bold),
                   ),
                 ),
@@ -118,7 +118,7 @@ class LoginForm extends StatelessWidget {
               child: CustomButton(
                 color: kBlue,
                 textColor: CustomColors.warnaputih,
-                text: '${CustomStringText().LoginSekarang}',
+                text: CustomStringText().LoginSekarang,
                 onPressed: () async {
                   if (controller.passwordController.text.isNotEmpty &&
                       controller.passwordController.text.isNotEmpty) {
@@ -153,7 +153,7 @@ class LoginForm extends StatelessWidget {
               child: CustomButton(
                 color: kBlack,
                 textColor: CustomColors.warnaputih,
-                text: '${CustomStringText().RegistrasiAkun}',
+                text: CustomStringText().RegistrasiAkun,
                 onPressed: () {
                   Get.toNamed(Routes.REGISTER);
                 },
@@ -184,16 +184,16 @@ class LoginForm extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                      "${CustomStringText().UpdateAplikasi}",
+                      CustomStringText().UpdateAplikasi,
                       style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                          const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center),
                   const SizedBox(
                     height: 5,
                   ),
                   Text(
                       "Untuk Mendapatankan Perbaikan dan Kenyamanan dalam Pengoprasian Aplikasi ${CustomStringText().namaRS}",
-                      style: TextStyle(fontSize: 15),
+                      style: const TextStyle(fontSize: 15),
                       textAlign: TextAlign.center),
                   const SizedBox(
                     height: 20,
@@ -220,9 +220,9 @@ class LoginForm extends StatelessWidget {
                             child: Column(
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.all(16),
-                                  child: Text("${CustomStringText().Kembali}",
-                                      style: TextStyle(
+                                  padding: const EdgeInsets.all(16),
+                                  child: Text(CustomStringText().Kembali,
+                                      style: const TextStyle(
                                           color: CustomColors.warnahitam,
                                           fontWeight: FontWeight.bold)),
                                 ),
@@ -245,7 +245,7 @@ class LoginForm extends StatelessWidget {
                               borderRadius: BorderRadius.circular(7),
                               color: Colors.greenAccent,
                             ),
-                            child: Column(
+                            child: const Column(
                               children: [
                                 Padding(
                                   padding: EdgeInsets.all(16),
@@ -284,17 +284,17 @@ Widget LupaPassword(context) {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-           Text('${CustomStringText().LupaPassword}',
+           Text(CustomStringText().LupaPassword,
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                   fontWeight: FontWeight.bold, color: CustomColors.warnahitam)),
           const SizedBox(
             height: 20,
           ),
            Padding(
-            padding: EdgeInsets.only(right: 10, left: 10),
+            padding: const EdgeInsets.only(right: 10, left: 10),
             child: Text(
-                '${CustomStringText().ulangsandi}'),
+                CustomStringText().ulangsandi),
           ),
           const SizedBox(
             height: 30,
@@ -304,10 +304,10 @@ Widget LupaPassword(context) {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.only(left: 15),
-                child: Text("${CustomStringText().MasukanEmail}",
+                padding: const EdgeInsets.only(left: 15),
+                child: Text(CustomStringText().MasukanEmail,
                     textAlign: TextAlign.start,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                     )),
               ),
@@ -360,7 +360,7 @@ Widget LupaPassword(context) {
               if (controller.lupapassword.text.isNotEmpty) {
                 Get.defaultDialog(
                   backgroundColor: const Color(0x00e0e0e0),
-                  content: CircularProgressIndicator(),
+                  content: const CircularProgressIndicator(),
                   title: '',
                   barrierDismissible: false,
                 );
@@ -368,7 +368,7 @@ Widget LupaPassword(context) {
                 Get.back();
                 if (postLupaPassword.code == 200) {
                   Get.snackbar('200',
-                      '${CustomStringText().kirimemail}');
+                      CustomStringText().kirimemail);
                   Get.back();
                 } else {
                   Get.defaultDialog(
@@ -395,8 +395,8 @@ Widget LupaPassword(context) {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("${CustomStringText().Submit}",
-                          style: TextStyle(
+                      Text(CustomStringText().Submit,
+                          style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               color: CustomColors.warnaputih)),
                     ],

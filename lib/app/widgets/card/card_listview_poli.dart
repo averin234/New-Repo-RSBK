@@ -265,7 +265,7 @@ class CardListViewPoli extends StatelessWidget {
                               height: 10,
                             ),
                             Padding(
-                              padding: EdgeInsets.only(left: 10),
+                              padding: const EdgeInsets.only(left: 10),
                               child: Text(
                                 'Jadwal Praktik',
                                 style: TextStyle(
@@ -338,7 +338,7 @@ class CardListViewPoli extends StatelessWidget {
                   Text(
                       "Anda Belum Terdaftar atau Login di Aplikasi SIRS ${CustomStringText().namaRS}",
                       style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                          const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center),
                   const SizedBox(
                     height: 5,
@@ -372,7 +372,7 @@ class CardListViewPoli extends StatelessWidget {
                               borderRadius: BorderRadius.circular(7),
                               color: CustomColors.warnahijau,
                             ),
-                            child: Column(
+                            child: const Column(
                               children: [
                                 Padding(
                                   padding: EdgeInsets.all(16),
@@ -396,7 +396,7 @@ class CardListViewPoli extends StatelessWidget {
                               borderRadius: BorderRadius.circular(7),
                               color: CustomColors.warnaabu,
                             ),
-                            child: Column(
+                            child: const Column(
                               children: [
                                 Padding(
                                   padding: EdgeInsets.all(16),
