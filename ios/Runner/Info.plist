@@ -29,9 +29,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Photo Use</string>
+	<string>Allow “RSBK Medical Health” to access your photos to post images or to use as my profile picture</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Photo Use</string>
+	<string>Allow “RSBK Medical Health” to access your photos to post images or to use as my profile picture</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

@@ -9,13 +9,11 @@ import 'package:rsbkcare/app/widgets/card/grid_view_home.dart';
 import 'package:rsbkcare/app/routes/app_pages.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-import '../../../widgets/card/card_info_rs.dart';
 import '../../../widgets/card/card_no_antri.dart';
 import '../../../widgets/card/card_slider_poli_home.dart';
 import '../../../widgets/card/card_text_raw.dart';
 import '../../../widgets/color/custom_color.dart';
 import '../../../widgets/shammer/shimmer_antrihome.dart';
-import '../../../widgets/shammer/shimmer_nama_rs.dart';
 import '../../../widgets/text/string_text.dart';
 import '../controllers/home_controller.dart';
 
@@ -93,21 +91,21 @@ class _HomeView1State extends State<HomeView1> {
       // ListView, CustomScrollView, etc. here
       child: ListView(
         children: [
-          FutureBuilder(
-            future: API.getDetailKlinik(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData &&
-                  snapshot.connectionState != ConnectionState.waiting &&
-                  snapshot.data != null) {
-                final data = snapshot.data!;
-                return WidgetInfo(
-                  detailklinik: data,
-                );
-              } else {
-                return const shimmernohome();
-              }
-            },
-          ),
+          // FutureBuilder(
+          //   future: API.getDetailKlinik(),
+          //   builder: (context, snapshot) {
+          //     if (snapshot.hasData &&
+          //         snapshot.connectionState != ConnectionState.waiting &&
+          //         snapshot.data != null) {
+          //       final data = snapshot.data!;
+          //       return WidgetInfo(
+          //         detailklinik: data,
+          //       );
+          //     } else {
+          //       return const shimmernohome();
+          //     }
+          //   },
+          // ),
           const SizedBox(
             height: 10,
           ),

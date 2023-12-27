@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rsbkcare/app/widgets/endpoint/fetch_data.dart';
 import 'package:rsbkcare/app/routes/app_pages.dart';
-import '../../../widgets/card/card_info_rs.dart';
 import '../../../widgets/color/custom_color.dart';
 import '../../../widgets/card/card_no_antri.dart';
 import '../../../widgets/card/card_slider_poli_no_home.dart';
@@ -20,9 +20,17 @@ class NoHomeView extends StatefulWidget {
   @override
   State<NoHomeView> createState() => _NoHomeViewState();
 }
-
 class _NoHomeViewState extends State<NoHomeView> {
   List<int> entries = List<int>.generate(5, (int i) => i);
+  final RefreshController _refreshController = RefreshController();
+
+  Future<void> _onRefresh() async {
+    await Future.delayed(const Duration(seconds: 1));
+    setState(() {
+      entries.add(entries.length);
+    });
+    _refreshController.refreshCompleted();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,14 +60,10 @@ class _NoHomeViewState extends State<NoHomeView> {
         automaticallyImplyLeading: false,
         elevation: 1,
       ),
-      body: RefreshIndicator(
-        onRefresh: () async {
-          // Your refresh logic goes here
-          await Future.delayed(const Duration(seconds: 2));
-          setState(() {
-            entries.add(entries.length);
-          });
-        },
+      body: SmartRefresher(
+          controller: _refreshController,
+          onRefresh: _onRefresh,
+          // ListView, CustomScrollView, etc. here
         child: FutureBuilder(
             future: API.getToken(),
             builder: (context, snapshot) {
@@ -68,25 +72,25 @@ class _NoHomeViewState extends State<NoHomeView> {
                   snapshot.data != null) {
                 return ListView(
                   children: [
-                    FutureBuilder(
-                      future: API.getDetailKlinik(),
-                      builder: (context, snapshot) {
-                        if (snapshot.hasData &&
-                            snapshot.connectionState !=
-                                ConnectionState.waiting &&
-                            snapshot.data != null) {
-                          final data = snapshot.data!;
-                          return WidgetInfo(
-                            detailklinik: data,
-                          );
-                        } else {
-                          return Container();
-                        }
-                      },
-                    ),
+                    // FutureBuilder(
+                    //   future: API.getDetailKlinik(),
+                    //   builder: (context, snapshot) {
+                    //     if (snapshot.hasData &&
+                    //         snapshot.connectionState !=
+                    //             ConnectionState.waiting &&
+                    //         snapshot.data != null) {
+                    //       final data = snapshot.data!;
+                    //       return WidgetInfo(
+                    //         detailklinik: data,
+                    //       );
+                    //     } else {
+                    //       return Container();
+                    //     }
+                    //   },
+                    // ),
                     const SizedBox(height: 10),
                     Padding(
-                      padding: const EdgeInsets.only(left: 20, top: 15, bottom: 15),
+                      padding: const EdgeInsets.only(left: 20),
                       child: Text(
                         CustomStringText().Antreanaatini,
                         style: MyStyle.textTitleBlack,
@@ -95,7 +99,7 @@ class _NoHomeViewState extends State<NoHomeView> {
                     const WidgetNoAntri(),
                     Padding(
                       padding:
-                          const EdgeInsets.only(top: 15, right: 20, left: 20),
+                          const EdgeInsets.only(right: 20, left: 20),
                       child: Text(
                         CustomStringText().LayananUtama,
                         style: MyStyle.textTitleBlack,

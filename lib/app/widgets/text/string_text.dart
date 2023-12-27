@@ -47,7 +47,7 @@ class CustomStringText {
 
   //menu home
 
-  String NamaRS2 = "RSBK \nhealthcare";
+  String NamaRS2 = "Health\ncare";
   String RegistrasiRS = "Registrasi \nRS";
   String RegistrasiHemodalisa = "Registrasi \nHemodalisa";
   String DaftarAntrean = "Daftar \nAntrean";
